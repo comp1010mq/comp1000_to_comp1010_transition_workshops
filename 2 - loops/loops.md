@@ -177,7 +177,7 @@ for(int i=1; i<=N; i++) {
 
 ### Nesting scenario 2
 
-Change the above output so that the symbols alternate between ^ and - between lines.
+Change the code so that the symbols alternate between ^ and - between lines.
 
 `N=6`
 
@@ -223,6 +223,37 @@ for(int i=1; i<=N; i++) {
 	}
 	println(); 
 }
+```
+
+
+### Nesting scenario 3 (Exercise)
+
+Change the code so that the symbols alternate between ^ and - within a line.
+
+`N=6`
+
+```
+^
+^ -
+^ - ^
+^ - ^ -
+^ - ^ - ^
+^ - ^ - ^ -
+```
+
+### Nesting scenario 4 (Exercise)
+
+Change the code so that the symbols alternate between ^ and - within a line and also the first symbol on each line is different from the first symbol on the previous line
+
+`N=6`
+
+```
+^
+- ^
+^ - ^
+- ^ - ^
+^ - ^ - ^
+- ^ - ^ - ^
 ```
 
 ## Coding in the real world
