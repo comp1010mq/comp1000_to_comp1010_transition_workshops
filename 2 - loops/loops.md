@@ -7,7 +7,7 @@ Loops are similar to conditions except that after every iteration of the loop, t
 
 ```java
 while(boolean expression) {
-	loop code
+	code inside loop
 }
 rest of the code
 ```
@@ -17,175 +17,225 @@ rest of the code
 Example:
 
 ```java
-int x = 10;
-int result = 5;
-if(x > 8) {
-	result = result + 1;
+int a = 6;
+int result = 1;
+while(a > 0) {
+	result = result * a;
+	a = a - 1;
 }
-print(result);
+println(result);
 ```
 
-<center><img src="ifExample.png" style="width: 300px;"/></center>
+<center><img src="whileExample.png" style="width: 300px;"/></center>
 
 
-The above code executes the conditional code, increasing `result` by 1 and displaying the value 6.
+The above code executes the loop 6 times (for `a` = 6,5,4,3,2,1 but not for 0) each time multiplying the current value of `a` into `result` and the final value of `result` is 6\*5\*4\*3\*2\*1 = 720. 
 
-## An `if-else` condition
-An `if-else` condition executes the if-block if the expression is evaluated to `true` and the else-block if the expression is evaluated to `false`. The rest of code is executes after either case.
+There is a better way of tracing loops known as logic table construction. The logic table for the above example is given below.
+
+| a 	| a > 0 	| result      	|
+|---	|-------	|-------------	|
+| 6 	| true  	| 1\*6 = 6     	|
+| 5 	| true  	| 6\*5 = 30    	|
+| 4 	| true  	| 30\*4 = 120  	|
+| 3 	| true  	| 120\*3 = 360 	|
+| 2 	| true  	| 360\*2 = 720 	|
+| 1 	| true  	| 720\*1 = 720 	|
+| 0 	| false 	|             	|
+
+## Guidelines for constructing a logic table
+
+While constructing a logic table, one is strongly encouraged to follow the following steps:
+
+1. Identify all variables involved in the boolean expression in the loop header.
+2. Create columns for each of the variables identified in step 1.
+3. Create a column for the loop expression. Create multiple columns to simplify reaching the expression if complex. For example, if expression is `x==y && !z`, the variables involved are `x`, `y`, and `z` and the sub-expressions are `x==y` and `!z`.
+4. Create columns for each variable (**unless column for the variable already present**) modified in the loop (in the order they are modified). Don't create columns v
+
+### Example for constructing a logic table
 
 ```java
-if(boolean expression) {
-	if-block statements
+int a = 10, b = 2, c = 100;
+int result = 0;
+while(a > b || c > a) {
+	result = result + 1;
+	a = a - 1;
+	c = c / 2;
 }
-else {
-	else-block statements
-}
-rest of the code
 ```
 
-<center><img src="ifElseCondition.png" style="width: 300px;"/></center>
+| a  	| b 	| c   	| a > b 	| c > a 	| a > b && c > a 	| result  	|
+|----	|---	|-----	|-------	|-------	|----------------	|---------	|
+| 10 	| 2 	| 100 	| true  	| true  	| true           	| 0+1 = 1 	|
+| 9  	|   	| 50  	| true  	| true  	| true           	| 1+1 = 2 	|
+| 8  	|   	| 25  	| true  	| true  	| true           	| 2+1 = 3 	|
+| 7  	|   	| 12  	| true  	| true  	| true           	| 3+1 = 4 	|
+| 6  	|   	| 6   	| true  	| false 	| false          	|         	|
+
+Note that we don't have columns for `a` and `c` again even though they are modified inside the loop because columns for those variables are already present in the table by virtue of step 2.
+
+## for-loop
+
+A for-loop is more compact than the while loop and *usually* more common in real-life applications.
+
+```java
+for(initializations; boolean expression; update(s)) {
+  code inside loop;
+}
+rest of the code;
+```
+
+<center><img src="forLoop.png" style="width: 300px;"/></center>
 
 Example:
 
 ```java
-int x = 13;
-boolean isEven;
-if(x % 2 == 0) {
-  isEven = true;
+int result = 0;
+for(int i=1; i <= 16; i*=2) {
+  result = result + i;
 }
-else {
-  isEven = false;
-}
-println(isEven);
+println(result);
 ```
 
-<center><img src="ifElseExample.png" style="width: 250px;"/></center>
+Trace (logic table):
 
-The else-block is executed in the above code, `isEven` becomes `false`, and is displayed on the console.
+| i  	| i<=16 	| result     	|
+|----	|-------	|------------	|
+| 1  	| true  	| 0+1 = 1    	|
+| 2  	| true  	| 1+2 = 3    	|
+| 4  	| true  	| 3+4 = 7    	|
+| 8  	| true  	| 7+8 = 15   	|
+| 16 	| true  	| 15+16 = 31 	|
+| 32 	| false 	|            	|
+
+## Nesting of control structures
+
+Control structures are literally like lego blocks, you can arrange them as you want, depending on the situation. So you can put loops/conditions inside other loops/conditions (and then more loops/conditions inside that and so on).
+
+Let's take some examples of a situation where such nesting is required.
+
+### Nesting scenario 1
+
+We would like to generate a pattern based on input integer `N > 0`
 
 
-##Exercises for conditions
+`N=4`
 
-### EXERCISE 1
+```
+^
+^ ^
+^ ^ ^
+^ ^ ^ ^ 
+```
 
-Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
- 
+<p>&nbsp;<p>
+
+`N=6`
+
+```
+^
+^ ^
+^ ^ ^
+^ ^ ^ ^ 
+^ ^ ^ ^ ^ 
+^ ^ ^ ^ ^ ^ 
+```
+
+**STEP 1:** There are `N` lines.
+
+Outer loop - 
+
 ```java
-int a = 5, b = 2, c = 10;
-if(a < b) {
-	if(c == a) {
-		c = c + 1;
-	}
-}
-else {
-	if(b < c) {
-		b = c - a;
-	}
-	else {
-		a = 0;
-	}
+for(int i=1; i<=N; i++) {
+	display current line
+	change line using println(); 
 }
 ```
 
-### EXERCISE 2
+**STEP 2:** Line corresponding to a given value of `i` has `i` caps 
 
-Write a piece of code for the following flowchart and determine the values of `a, b, c` after the code executes.
+(when `i = 1`, there is 1 cap, when `i = 2` there are 2 caps, and so on ...).
 
+Inner loop - 
 
-<center><img src="nestedIfElseExercise.png" style="width: 250px;"/></center>
-
-##Coding to a truth table
-
-A truth table is one that gives us the required output for some given inputs. For example, in the following table, for inputs `x` and `y`, the desired values for `exp` are provided.
-
-| x     | y     | exp   |
-|-------|-------|-------|
-| false | false | false |
-| false | true  | true  |
-| true  | false | true  |
-| true  | true  | false |
-
-It can be seen that `exp` is `true` when,
-
-- `x = true` and `y = false`, or,
-- `x = false` and `y = true`
-
-We can write this as,
-
-```
-exp = (x && !y) || (!x && y)
+```java
+for(int k=1; k<=i; k++) {
+	print("^");
+}
 ```
 
-However, you can see that `exp` is `true` only when `x` and `y` hold different values. So we can also write a simpler expression as,
+**COMPLETE SOLUTION**
 
-```
-exp = (x!=y);
-```
-
-Consider the following scenario: we are given three boolean inputs `a, b, c`. We want an output value `d` based on the following truth table:
-
-| a     | b     | c     | exp   |
-|-------|-------|-------|-------|
-| false | false | false | true  |
-| false | false | true  | true  |
-| false | true  | false | false |
-| false | true  | true  | false |
-| true  | false | false | false |
-| true  | false | true  | false |
-| true  | true  | false | false |
-| true  | true  | true  | true  |
-
-When is `exp = true`? In the following cases:
-
-- `a = false, b = false, c = false`
-- `a = false, b = false, c = true `
-- `a = true, b = true, c = true `
-
-The first and third conditions can be combined as
-
-```
-a == b && b == c
+```java
+for(int i=1; i<=N; i++) {
+	for(int k=1; k<=i; k++) {
+		print("^");
+	}
+	println(); 
+}
 ```
 
-The second condition is
+### Nesting scenario 2
+
+Change the above output so that the symbols alternate between ^ and - between lines.
+
+`N=6`
 
 ```
-!a && !b && c
+^
+- -
+^ ^ ^
+- - - - 
+^ ^ ^ ^ ^
+- - - - - -
 ```
 
-Thereby our overall expression is,
+The difference from scenario 1 is that if counter is an odd number, it's a cap (`^`) while if the counter is an even number, it's a dash (`-`).
+
+So the earlier display statement
 
 ```
-exp = (a==b &&b==c) || (!a && !b && c)
+print("^");
 ```
 
-Of course, there are better ways to optimize expression building, but for our purpose, this is sufficient.
+will change to,
+
+```
+if(i%2 == 1) { //odd counter: cap
+	print("^");
+}
+else { //even counter: dash
+	print("-");
+}
+```
+
+**COMPLETE SOLUTION**
+
+```java
+for(int i=1; i<=N; i++) {
+	for(int k=1; k<=i; k++) {
+		if(i%2 == 1) { //odd counter: cap
+			print("^");
+		}
+		else { //even counter: dash
+			print("-");
+		}
+	}
+	println(); 
+}
+```
 
 ## Coding in the real world
 
-When will the requirements be as clearly stated as a truth table? *Almost never!*
-
-We need to code to vague/abstract/hazy requirements and in this section, we'll take a look as such scenarios.
+Just like in conditions, lets see some real-world scenarios where we need to use loops.
 
 ### SCENARIO 1
 
-There are students enrolled in degrees and can graduate if they are enrolled in a non-honors undergraduate course and have completed 72 credit points or more, or enrolled in an honors course and have completed 96 credit points or more, or if they are enrolled in a postgraduate program and have completed 48 credit points or more. Write a piece of code that determines if a specific student is eligible to graduate or not. You may assume that the following inputs are available:
-
-1. Course in which student is enrolled: `String`. Can be either "UG"/ "UG (Hons)"/ "PG"
-2. Number of credit points completed: `int`.
+TODO
 
 ### SCENARIO 2
 
-A website offers discounts based on item categories and quantities. There are four categories - A, B, C, and D. For all categories except D, the following rules exist,
-
-- Less than 2 items: no discount
-- Between 2 and 5 items: 15% discount
-- Between 6 and 10 items: 25% discount
-- More than 10 items: 30% discount
-
-
-For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
-
+TODO
 
 ### SCENARIO 3
 
