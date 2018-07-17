@@ -70,8 +70,7 @@ The else-block is executed in the above code, `isEven` becomes `false`, and is d
 
 Draw a flowchart for the following code and determine the values of `a, b, c` after the code executes.
  
-```
-java
+```java
 int a = 5, b = 2, c = 10;
 if(a < b) {
 	if(c == a) {
@@ -94,9 +93,6 @@ Write a piece of code for the following flowchart and determine the values of `a
 
 
 <center><img src="nestedIfElseExercise.png" style="width: 250px;"/></center>
-
-	
-
 
 ##Coding to a truth table
 
@@ -178,6 +174,30 @@ There are students enrolled in degrees and can graduate if they are enrolled in 
 1. Course in which student is enrolled: `String`. Can be either "UG"/ "UG (Hons)"/ "PG"
 2. Number of credit points completed: `int`.
 
-###SCENARIO 2
+### SCENARIO 2
+
+A website offers discounts based on item categories and quantities. There are four categories - A, B, C, and D. For all categories except D, the following rules exist,
+
+- Less than 2 items: no discount
+- Between 2 and 5 items: 15% discount
+- Between 6 and 10 items: 25% discount
+- More than 10 items: 30% discount
+
+
+For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
+
+
+### SCENARIO 3
+
+TODO
+
+### SCENARIO 4
+
+TODO
+
+
+
+
+
 
 
