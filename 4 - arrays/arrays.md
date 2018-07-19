@@ -265,9 +265,9 @@ The ages of 20 people is stored in an array `ageList`. Write a piece of code tha
 The state of 25 electrical switches is held in an array `smartSwitches`. The states can be "On" (true) or "Off" (false). Write a piece of code that toggles all switches. That is, all switches that are currently "On" should turn "Off", and all switches that are currently "Off" should turn "On".
 
 ## SCENARIO 3
-Assume that we are encoding birthdays as integers where 1st january is 1, 2nd january is 2, and so on till 31st january is 366 (remember that 29th february will also be given an integer mapping).
+Assume that we are encoding birthdays as integers where 1st january is 1, 2nd january is 2, and so on till 31st december is 366 (remember that 29th february will also be given an integer mapping).
 
-The birthdays of 1000 people is stored in an array `bdays`. Write a piece of code that displays the most frequent date of birth.
+The birthdays of 1000 people is stored in an array `bdays`. Write a piece of code that displays the most frequent date of birth. For the basic version, you may display an integer between 1 and 366. For the advanced version, display the actual data in `DD/MM` format.
 
 ## SCENARIO 4
 I keep track of the time taken (in minutes) to run each kilometer over a 100km race (let me dream!). These times are stored in an array `lapTimes`. For example, if `lapTimes[0]` is 6.23, it means I ran the first kilometer in 6 minutes 13.8 seconds. 
