@@ -177,7 +177,7 @@ for(int i=1; i<=N; i++) {
 
 ### Nesting scenario 2
 
-Change the code so that the symbols alternate between ^ and - between lines.
+Change the code so that the symbols alternate between a cap (^) and a dash (-) between lines.
 
 `N=6`
 
@@ -190,7 +190,7 @@ Change the code so that the symbols alternate between ^ and - between lines.
 - - - - - -
 ```
 
-The difference from scenario 1 is that if counter is an odd number, it's a cap (`^`) while if the counter is an even number, it's a dash (`-`).
+The difference from scenario 1 is that if outer loop counter `i` is an odd number, it's a cap (`^`) while if the outer loop counter `i` is an even number, it's a dash (`-`).
 
 So the earlier display statement
 
@@ -258,24 +258,99 @@ Change the code so that the symbols alternate between ^ and - within a line and 
 
 ## Coding in the real world
 
-Just like in conditions, lets see some real-world scenarios where we need to use loops.
+Just like in conditions, lets see some real-world scenarios where we need to use loops. 
+
+But there is a problem. Loops usually iterate over a *collection* (an array, list, hashmap, etc). Since we can't assume knowledge of the same in this document, we're in a bit of a pickle, aren't we? 
+
+So, instead we'll iterate over numbers generated via a random-number generator.
+
+### GROUNDWORK - Generating random numbers in Processing
+
+In processing, we can get a random real number between 0 and `n` (including 0 but **excluding** `n`) using,
+
+```java
+double r = random(n);
+``` 
+
+If we cast the result to an integer, that integer will be between 0 and `n` (including 0 but **excluding** `n`)
+
+```java
+int z = (int)r;
+```
+
+#### EXAMPLE
+
+To generate a number in multiples of 0.5 between 0 and 100 (inclusive on both sides), we first have to generate a random integer between 0 and 200 (inclusive on both sides).
+
+```java
+int a = (int)random(0, 201); //remember, 201 is not included!
+```
+
+Next, we can divide the resulting integer by 0.5 to get our random and stepped real number.
+
+```java
+double b = a * 0.5;
+```
+
+#### Assumption for scenarios 1 to 3
+
+For scenarios 1 to 3, you may assume that `n` is generated using the following statement:
+
+```java
+int x = 1 + (int)random(100); //x can be any integer from 1 to 100
+int n = 10*x; //n can be one of the values from [10, 20, ..., 1000]
+```
+
 
 ### SCENARIO 1
+Write a piece of code that determines the number of times we get a 6 when a normal 6-faced die is rolled `n` times. 
 
-TODO
 
 ### SCENARIO 2
-
-TODO
+Write a piece of code that determines the average outcome when a normal 6-faced dice is rolled `n` times.
 
 ### SCENARIO 3
-
-TODO
+Write a piece of code that determines the most frequent outcome when a normal 6-faced dice is rolled `n` times. If there is a tie, display all values. 
 
 ### SCENARIO 4
+Consider a party where there are 4 people. Call them Alice, Bob, Charles and Diane. Assuming they are all friendly and logical people, the following handshakes will take place:
 
-TODO
+- Alice with 
+	1. Bob
+	2. Charles
+	3. Diane
+- Bob (already shook hands with Alice) with
+	1. Charles
+	2. Diane
+- Chales (already shook hands with Alice and Bob) with
+	1. Diane 
+- Diane (already shook hands with everyone)
 
+Thus, there are 3+2+1 = 6 handshakes for 4 people.
+
+If a fifth person (Eddie) joins the party, he shakes hands with all others.
+
+Thus, there are **`4`**+3+2+1 = 10 handshakes for 5 people.
+
+A table summarizing this pattern is given below,
+
+| Number of people 	| Number of handshakes         	|
+|------------------	|------------------------------	|
+| 1                	| 0                            	|
+| 2                	| 1                            	|
+| 3                	| 2+1                          	|
+| 4                	| 3+2+1                        	|
+| 5                	| 4+3+2+1                      	|
+| ...              	|                              	|
+| n                	| (n-1) + (n-2) + .... + 2 + 1 	|
+
+There is actually a very elegant formula to get this value, but for the purpose of our exercise, we'd like you to compute the number of handshakes in a party of `n` people using a loop.
+
+You may assume that `n` is generated using the following statement:
+
+```java
+int n = (int)random(101); //n can be any integer from 0 to 100
+```
 
 
 
