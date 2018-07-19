@@ -1,0 +1,112 @@
+\documentclass[abstracton]{scrartcl}
+\usepackage{myOptions}
+\usetikzlibrary{external}
+\tikzexternalize % activate
+
+\tikzset{
+    png export/.style={
+        external/system call=%
+        {xelatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource";%
+         convert -density 300 -transparent white "\image.pdf" "\image.png"; rm -f "\image.pdf"},
+    }
+}
+
+\tikzset{%
+    % Add size information to the .dpth file (png is in density not size)
+    /pgf/images/external info,
+    % Use the png export AND the import
+    use png/.style={png export,png import},
+    png import/.code={%
+        \tikzset{%
+            /pgf/images/include external/.code={%
+                % Here you can alter to whatever you want
+                % \pgfexternalwidth is only available if /pgf/images/external info
+                % is set
+                \includegraphics%
+                [width=\pgfexternalwidth,height=\pgfexternalheight]%
+                {{##1}.png}%
+            }%
+        }%
+    }%
+}
+
+
+\begin{document}
+
+When you pass an array to a function, a shallow copy of the actual parameter is made into the formal parameter. For example, in the following code, \texttt{data} becomes a shallow copy of \texttt{arr}.
+
+\begin{lstlisting}
+void caller() {
+	int[] arr = {10, 70, 50};
+	int sum = total(arr);
+}
+
+int total(int[] data) {
+	int result = 0;
+	for(int i=0; i < data.length; i++) {
+		result+=data[i];
+	}
+	return result;
+}
+\end{lstlisting}
+
+\bgroup \tikzset{png export} \begin{tikzpicture}
+\scopeblock{functionName=caller(),variables={"arr", "sum"},width=3.5}
+\memoryblock{colour=red!10!white, array={"[0] = 10", "[1] = 70", "[2] = 50"}, width = 2, height = 3, x = 6, y=-1}
+\scopeblock{functionName={total(arr)},variables={"data","result = 0 -> 10 -> 80 -> 130"}, width=5, x = 10}
+\arrow{startX=3, startY=1.5, endX=6, endY=1.5}
+\arrow{startX=11, startY=1.5, endX=8, endY=1.5}
+\end{tikzpicture} \egroup
+
+
+If you have a function that modifies the passed array, the contents of the actual parameter will also change.
+
+\begin{lstlisting}
+void caller() {
+	int[] arr = {10, -70, 0};
+	negate(arr);
+}
+
+void negate(int[] data) {
+	for(int i=0; i < data.length; i++) {
+		data[i]=data[i]*-1;
+	}
+}
+\end{lstlisting}
+
+\bgroup \tikzset{png export} \begin{tikzpicture}
+\scopeblock{functionName=caller(),variables={"arr"},width=3.5}
+\memoryblock{colour=red!10!white, array={"[0] = 10 -> -10", "[1] = -70 -> 70", "[2] = 0 -> 0"}, width = 3, height = 3, x = 5.5, y=-1.5}
+\scopeblock{functionName={negate(arr)},variables={"data"}, width=5, x = 10}
+\arrow{startX=2.5, startY=1, endX=5.5, endY=1}
+\arrow{startX=11.5, startY=1, endX=8.5, endY=1}
+\end{tikzpicture} \egroup
+
+If a function returns an array (source) and the caller copies it into an array (destination), it's a shallow copy as demonstrated in the following example.
+
+If you have a function that modifies the passed array, the contents of the actual parameter will also change.
+
+\begin{lstlisting}
+void caller() {
+	int[] data = getDiceOutcomes(5);
+}
+
+int[] getDiceOutcomes(int n) {
+	int[] outcomes = new int[n];
+	for(int i=0; i < outcomes.length; i++) {
+		outcomes[i] = (int)random(1, 7);
+	}
+	return outcomes;
+}
+\end{lstlisting}
+
+\bgroup \tikzset{png export} \begin{tikzpicture}
+\scopeblock{functionName=caller(),variables={"data"},width=3.5}
+\memoryblock{colour=red!10!white, array={"[0] = 1", "[1] = 4", "[2] = 6", "[3] = 2", "[4] = 6"}, width = 3, height = 5, x = 5.5, y=-4}
+\scopeblock{functionName=getDiceOutcomes(5),variables={"n=5", "outcomes"}, width=5, x=10}
+\arrow{startX=2.5, startY=1, endX=5.5, endY=0.5}
+\arrow{startX=11.5, startY=0.5, endX=8.5, endY=0.5}
+\end{tikzpicture} \egroup
+
+
+\end{document}

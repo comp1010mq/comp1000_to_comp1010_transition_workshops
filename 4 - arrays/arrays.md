@@ -137,7 +137,8 @@ int[] arr = new int[4];
 
 If the first item is at memory address 200-203, the second item will be at 204-207, the third item will be at 208-211 and the last item from 212-215.
 
-The array itself holds the starting address, in this case 200.
+The array itself holds the starting address, in this case 200. 
+That's why we say that an array is a *reference*.
 
 We represent this as,
 
