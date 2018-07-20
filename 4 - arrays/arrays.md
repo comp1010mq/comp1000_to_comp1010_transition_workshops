@@ -8,6 +8,7 @@ So you can have,
 - an array of 20 booleans
 - an array of 2000 characters
 - an array of 50 Strings
+- an array of 400 arrays
 - and so on...
 
 
@@ -51,11 +52,11 @@ int[] cutoffs = {50, 65, 75, 85};
 char[] punctuations = {'.', '!', '?', ',', ';', ':'};
 ```
 
-The problem with this approach is that once an array is created, it cannot be re-referenced later (more about referencing soon).
+The problem with this approach is that once an array is created, this method can not be used to re-reference it later (more about referencing soon).
 
 ### Creating array - Option 3
 
-The third approach is similar to the second except you **can** update the reference later.
+The third approach is similar to the second except you **can** use it to update the reference later.
 
 ```java
 type[] arrayName = new type[]{item1, item2, ....};
@@ -237,11 +238,22 @@ Write a piece of code that creates the arrays represented in the following diagr
 
 ## Exercise 4
 
+Draw the memory diagram for the following code,
+
+```java
+int[] a = {4,8,15,16,23,42};
+int[] b = a;
+b[2] = 100;
+b = new int[]{104,101,108,108,111};
+```
+
+## Exercise 5
+
 Write a piece of code that creates an array with 100 integers, each between 1 and 20. Count the number of items that are divisible by the item after them.
 
 For example, if the first few items of the array are `{20, 5, 8, 4, 4, ...}`, 20 is divisible by 5, 8 is divisible by 4, and 4 is divisible by 4, so we have 3 such items so far.
 
-## Exercise 5
+## Exercise 6
 
 Consider the following piece of code.
 
@@ -283,6 +295,10 @@ For the same scenario of the 100km run, find the fastest stretch of 10 kms (for 
 ## SCENARIO 6
 
 For the same scenario of the 100km run, find the fastest stretch of `N` kms where `N` can be any value between 1 and 100 (inclusive on both sides).
+
+## SCENARIO 7 (Advanced)
+
+Implement scenario 6 again, but this time only use a single loop in your solution (If you were already only using one loop, well done!)
 
 <!--
 better for arrays and functions
