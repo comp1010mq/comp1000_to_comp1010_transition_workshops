@@ -76,10 +76,9 @@ boolean divisible(int a, int b) {
 
 ### Exercise 1
 
-Suppose we have a functiono that accepts a real number (`double`) and returns its square. 
+Suppose we have a function that accepts a real number (`double`) and returns its square. 
 
-Draw a block diagram for the interaction when a caller calls a function with the value 2.5. Assume the name of the formal parameter is `val`, and the value returned by the function is copied into a variable `sqr`.
-
+Draw a block diagram for the interaction when a caller calls the function with the value 2.5. Assume the name of the formal parameter is `val`, and the value returned by the function is copied into a variable `sqr`.
 
 ### Exercise 2
 
@@ -93,6 +92,18 @@ int roundOff(double a) {
 
 Write a statement in the caller that calls the function `roundOff` with the parameter 6.8 and stores the value returned in a variable `result`.
 
+
+### Sub-exercise 2.1
+
+Which of the following are valid calls to function `roundOff`?
+
+1. `int a = roundOff(4.5);`
+2. `int b = roundOff(8);`
+3. `roundOff(2.6);`
+4. `double c = roundOff(-1.53);`
+5. `int d = roundOff(3.2, 4.8);`
+6. `int e = roundOff();`
+7. `int e = roundOff(true);`
 
 ### Exercise 3
 

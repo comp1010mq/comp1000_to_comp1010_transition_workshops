@@ -189,15 +189,28 @@ For category D, there is a 1% discount for every item purchased, up to a maximum
 
 ### SCENARIO 3
 
-TODO
+The shopping mall charges for parking based on the following rules:
+
+- under 3 hours: free
+- 3 hours to 3 hours 29 minutes: $4
+- 3 hours 30 minutes to 3 hours 59 minutes: $7
+- 4 hours to 4 hours 29 minutes: $11
+- 4 hours 30 minutes to 4 hours 59 minutes: $16
+- 5 hours to 5 hours 29 minutes: $22
+- 5 hours 30 minutes to 5 hours 59 minutes: $30
+- 6 hours or over: $40
+
+Given the number of hours and minutes in two variables, write a piece of code that stores the parking cost in a variable `parkingFee`.
 
 ### SCENARIO 4
 
-TODO
+Write a piece of code to address the same problem as in scenario 4, but an additional change. Weekend (Sat, Sun) parking incurs a flat rate of $3 per 30 minutes. That is,
 
+- 0 to 29 minutes: $4
+- 30 to 59 minutes: $8
+- 60 to 89 minutes: $12
+- ...
 
-
-
-
+An additional variable `dayOfWeek` is available and is 0 for Monday, 1 for Tuesday and so on.
 
 
