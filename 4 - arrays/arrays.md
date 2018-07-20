@@ -142,11 +142,11 @@ That's why we say that an array is a *reference*.
 
 We represent this as,
 
-<center><img src="arrays-figure0.png" width=300px></center>
+<center><img src="figs/arrays-figure0.png" width=300px></center>
 
 or a more simplified way of adding the array label above the items.
 
-<center><img src="arrays-figure1.png" width=100px></center>
+<center><img src="figs/arrays-figure1.png" width=100px></center>
 
 #### Example
 
@@ -154,7 +154,7 @@ or a more simplified way of adding the array label above the items.
 boolean[] flags = {true, false, false, true, false};
 ```
 
-<center><img src="arrays-figure2.png" width=100px></center>
+<center><img src="figs/arrays-figure2.png" width=100px></center>
 
 
 # Shallow copy
@@ -171,11 +171,11 @@ b[2] = -30; //a[2] is also -30 now
 
 The outcome is represented by the following memory diagrams,
 
-<center><img src="arrays-figure3.png" width=250px></center>
+<center><img src="figs/arrays-figure3.png" width=250px></center>
 
 or the more compact diagram,
 
-<center><img src="arrays-figure4.png" width=130px></center>
+<center><img src="figs/arrays-figure4.png" width=130px></center>
 
 
 # Deep copy
@@ -195,11 +195,11 @@ c[2] = -30; //a[2] won't change
 
 The outcome is represented by the following memory diagrams,
 
-<center><img src="arrays-figure5.png" width=400px></center>
+<center><img src="figs/arrays-figure5.png" width=400px></center>
 
 or the more compact diagram,
 
-<center><img src="arrays-figure6.png" width=300px></center>
+<center><img src="figs/arrays-figure6.png" width=300px></center>
 
 
 #Exercises
@@ -232,7 +232,7 @@ for(int i=0; i < data.length; i++) {
 
 Write a piece of code that creates the arrays represented in the following diagram.
 
-<center><img src="arrays-figure7.png" width=300px></center>
+<center><img src="figs/arrays-figure7.png" width=300px></center>
 
 
 ## Exercise 4

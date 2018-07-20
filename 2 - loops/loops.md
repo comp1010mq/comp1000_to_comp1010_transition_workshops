@@ -12,7 +12,7 @@ while(boolean expression) {
 rest of the code
 ```
 
-<center><img src="whileLoop.png" style="width: 300px;"/></center>
+<center><img src="figs/whileLoop.png" style="width: 300px;"/></center>
 
 Example:
 
@@ -26,7 +26,7 @@ while(a > 0) {
 println(result);
 ```
 
-<center><img src="whileExample.png" style="width: 300px;"/></center>
+<center><img src="figs/whileExample.png" style="width: 300px;"/></center>
 
 
 The above code executes the loop 6 times (for `a` = 6,5,4,3,2,1 but not for 0) each time multiplying the current value of `a` into `result` and the final value of `result` is 6\*5\*4\*3\*2\*1 = 720. 
@@ -85,7 +85,7 @@ for(initializations; boolean expression; update(s)) {
 rest of the code;
 ```
 
-<center><img src="forLoop.png" style="width: 300px;"/></center>
+<center><img src="figs/forLoop.png" style="width: 300px;"/></center>
 
 Example:
 
@@ -256,7 +256,7 @@ Change the code so that the symbols alternate between ^ and - within a line and 
 - ^ - ^ - ^
 ```
 
-## Coding in the real world
+# Coding in the real world
 
 Just like in conditions, lets see some real-world scenarios where we need to use loops. 
 
@@ -264,7 +264,7 @@ But there is a problem. Loops usually iterate over a *collection* (an array, lis
 
 So, instead we'll iterate over numbers generated via a random-number generator.
 
-### GROUNDWORK - Generating random numbers in Processing
+## GROUNDWORK - Generating random numbers in Processing
 
 In processing, we can get a random real number between 0 and `n` (including 0 but **excluding** `n`) using,
 
@@ -278,7 +278,7 @@ If we cast the result to an integer, that integer will be between 0 and `n` (inc
 int z = (int)r;
 ```
 
-#### EXAMPLE
+### EXAMPLE
 
 To generate a number in multiples of 0.5 between 0 and 100 (inclusive on both sides), we first have to generate a random integer between 0 and 200 (inclusive on both sides).
 
@@ -292,7 +292,7 @@ Next, we can divide the resulting integer by 0.5 to get our random and stepped r
 double b = a * 0.5;
 ```
 
-#### Assumption for scenarios 1 to 3
+### Assumption for scenarios 1 to 3
 
 For scenarios 1 to 3, you may assume that `n` is generated using the following statement:
 
@@ -302,17 +302,17 @@ int n = 10*x; //n can be one of the values from [10, 20, ..., 1000]
 ```
 
 
-### SCENARIO 1
+## SCENARIO 1
 Write a piece of code that determines the number of times we get a 6 when a normal 6-faced die is rolled `n` times. 
 
 
-### SCENARIO 2
+## SCENARIO 2
 Write a piece of code that determines the average outcome when a normal 6-faced dice is rolled `n` times.
 
-### SCENARIO 3
+## SCENARIO 3
 Write a piece of code that determines the most frequent outcome when a normal 6-faced dice is rolled `n` times. If there is a tie, display all values. 
 
-### SCENARIO 4
+## SCENARIO 4
 Consider a party where there are 4 people. Call them Alice, Bob, Charles and Diane. Assuming they are all friendly and logical people, the following handshakes will take place:
 
 - Alice with 
@@ -351,7 +351,3 @@ You may assume that `n` is generated using the following statement:
 ```java
 int n = (int)random(101); //n can be any integer from 0 to 100
 ```
-
-
-
-

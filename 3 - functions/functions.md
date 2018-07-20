@@ -2,23 +2,23 @@
 
 A function is a named piece of code that can be supplied with some inputs (known as parameters) and may return a value back to the caller.
 
-<center><img src="functionMemoryDiagrams-figure0.png" style="width: 300px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure0.png" style="width: 300px;"/></center>
 
 For example, we may have a function that determines the higher of two integers. We can call it by passing it two integers. If we pass the values 2 and 5, it should return 5.
 
-<center><img src="functionMemoryDiagrams-figure1.png" style="width: 300px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure1.png" style="width: 300px;"/></center>
 
 However, if we pass only one value, it cannot be executed, as it expects two integers.
 
-<center><img src="functionMemoryDiagrams-figure2.png" style="width: 300px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure2.png" style="width: 300px;"/></center>
 
 Similarly, you cannot pass it more than 2 values.
 
-<center><img src="functionMemoryDiagrams-figure3.png" style="width: 300px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure3.png" style="width: 300px;"/></center>
 
 Even if you pass two values, you must ensure they are of the right type. For example, we cannot pass a `boolean` instead of an integer.
 
-<center><img src="functionMemoryDiagrams-figure4.png" style="width: 300px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure4.png" style="width: 300px;"/></center>
 
 ## Defining a function
 
@@ -62,7 +62,7 @@ boolean divisible(int a, int b) {
 -   Scope is transferred from the caller to the function call
     `divisible(12, 2)`.
 
-<center><img src="functionMemoryDiagrams-figure5.png" style="width: 500px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure5.png" style="width: 500px;"/></center>
 
 -   The function determines that the boolean expression `a%b == 0` is
     `true`, executes the if-block and returns `true`.
@@ -70,7 +70,7 @@ boolean divisible(int a, int b) {
 -   The control is transferred back to the caller with the returned
     value `true` being copied into variable `status`.
 
-<center><img src="functionMemoryDiagrams-figure6.png" style="width: 500px;"/></center>
+<center><img src="figs/functionMemoryDiagrams-figure6.png" style="width: 500px;"/></center>
 
 ## Exercises
 

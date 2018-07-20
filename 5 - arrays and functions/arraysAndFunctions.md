@@ -26,7 +26,7 @@ int total(int[] data) {
 }
 ```
 
-<center><img src=arraysAndFunctionMemoryDiagrams-figure0.png width=500px></center>
+<center><img src=figs/arraysAndFunctionMemoryDiagrams-figure0.png width=500px></center>
 
 ## Modifying contents of array passed
 
@@ -46,7 +46,7 @@ void negate(int[] data) {
 }
 ```
 
-<center><img src=arraysAndFunctionMemoryDiagrams-figure1.png width=500px></center>
+<center><img src=figs/arraysAndFunctionMemoryDiagrams-figure1.png width=500px></center>
 
 ## Returning an array from a function
 
@@ -71,7 +71,7 @@ int[] getDiceOutcomes(int n) {
 }
 ```
 
-<center><img src=arraysAndFunctionMemoryDiagrams-figure2.png width=500px></center>
+<center><img src=figs/arraysAndFunctionMemoryDiagrams-figure2.png width=500px></center>
 
 # Exercises
 

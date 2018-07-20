@@ -1,4 +1,4 @@
-#Conditions
+# Conditions
 
 Conditions are based on *boolean expressions* and the program takes a specific course based on whether these expressions evaluate to `true` or `false`.
 
@@ -12,7 +12,7 @@ if(boolean expression) {
 rest of the code
 ```
 
-<center><img src="ifCondition.png" style="width: 300px;"/></center>
+<center><img src="figs/ifCondition.png" style="width: 300px;"/></center>
 
 Example:
 
@@ -25,7 +25,7 @@ if(x > 8) {
 print(result);
 ```
 
-<center><img src="ifExample.png" style="width: 300px;"/></center>
+<center><img src="figs/ifExample.png" style="width: 300px;"/></center>
 
 
 The above code executes the conditional code, increasing `result` by 1 and displaying the value 6.
@@ -43,7 +43,7 @@ else {
 rest of the code
 ```
 
-<center><img src="ifElseCondition.png" style="width: 300px;"/></center>
+<center><img src="figs/ifElseCondition.png" style="width: 300px;"/></center>
 
 Example:
 
@@ -59,12 +59,12 @@ else {
 println(isEven);
 ```
 
-<center><img src="ifElseExample.png" style="width: 250px;"/></center>
+<center><img src="figs/ifElseExample.png" style="width: 250px;"/></center>
 
 The else-block is executed in the above code, `isEven` becomes `false`, and is displayed on the console.
 
 
-##Exercises for conditions
+## Exercises for conditions
 
 ### EXERCISE 1
 
@@ -92,9 +92,9 @@ else {
 Write a piece of code for the following flowchart and determine the values of `a, b, c` after the code executes.
 
 
-<center><img src="nestedIfElseExercise.png" style="width: 250px;"/></center>
+<center><img src="figs/nestedIfElseExercise.png" style="width: 250px;"/></center>
 
-##Coding to a truth table
+## Coding to a truth table
 
 A truth table is one that gives us the required output for some given inputs. For example, in the following table, for inputs `x` and `y`, the desired values for `exp` are provided.
 
@@ -167,14 +167,14 @@ When will the requirements be as clearly stated as a truth table? *Almost never!
 
 We need to code to vague/abstract/hazy requirements and in this section, we'll take a look as such scenarios.
 
-### SCENARIO 1
+## SCENARIO 1
 
 There are students enrolled in degrees and can graduate if they are enrolled in a non-honors undergraduate course and have completed 72 credit points or more, or enrolled in an honors course and have completed 96 credit points or more, or if they are enrolled in a postgraduate program and have completed 48 credit points or more. Write a piece of code that determines if a specific student is eligible to graduate or not. You may assume that the following inputs are available:
 
 1. Course in which student is enrolled: `String`. Can be either "UG"/ "UG (Hons)"/ "PG"
 2. Number of credit points completed: `int`.
 
-### SCENARIO 2
+## SCENARIO 2
 
 A website offers discounts based on item categories and quantities. There are four categories - A, B, C, and D. For all categories except D, the following rules exist,
 
@@ -187,7 +187,7 @@ A website offers discounts based on item categories and quantities. There are fo
 For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
 
 
-### SCENARIO 3
+## SCENARIO 3
 
 The shopping mall charges for parking based on the following rules:
 
@@ -202,7 +202,7 @@ The shopping mall charges for parking based on the following rules:
 
 Given the number of hours and minutes in two variables, write a piece of code that stores the parking cost in a variable `parkingFee`.
 
-### SCENARIO 4
+## SCENARIO 4
 
 Write a piece of code to address the same problem as in scenario 4, but an additional change. Weekend (Sat, Sun) parking incurs a flat rate of $3 per 30 minutes. That is,
 
