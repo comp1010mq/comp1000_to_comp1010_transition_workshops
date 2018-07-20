@@ -16,3 +16,7 @@ https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
 
 https://www.hackerrank.com/challenges/migratory-birds/problem
 
+https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+
+https://www.hackerrank.com/challenges/bon-appetit/problem
+
