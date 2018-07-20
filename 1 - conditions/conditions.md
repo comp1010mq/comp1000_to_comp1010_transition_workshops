@@ -204,12 +204,12 @@ Given the number of hours and minutes in two variables, write a piece of code th
 
 ## SCENARIO 4
 
-Write a piece of code to address the same problem as in scenario 4, but an additional change. Weekend (Sat, Sun) parking incurs a flat rate of $3 per 30 minutes. That is,
+Write a piece of code to address the same problem as in scenario 3, but an additional rule. Weekend (Sat, Sun) parking incurs a flat rate of $3 per 30 minutes. That is,
 
 - 0 to 29 minutes: $4
 - 30 to 59 minutes: $8
 - 60 to 89 minutes: $12
-- ...
+- and so on...
 
 An additional variable `dayOfWeek` is available and is 0 for Monday, 1 for Tuesday and so on.
 
