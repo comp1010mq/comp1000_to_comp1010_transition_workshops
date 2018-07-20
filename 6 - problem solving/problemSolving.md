@@ -20,3 +20,9 @@ https://www.hackerrank.com/challenges/day-of-the-programmer/problem
 
 https://www.hackerrank.com/challenges/bon-appetit/problem
 
+https://www.hackerrank.com/challenges/angry-professor/problem
+
+https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
+
+https://www.hackerrank.com/challenges/equality-in-a-array/problem
+
