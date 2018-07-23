@@ -14,7 +14,7 @@ rest of the code
 
 <center><img src="figs/ifCondition.png" style="width: 300px;"/></center>
 
-![](figs/ifCondition.png =150x200)
+![](figs/ifCondition.png | width=100)
 
 Example:
 
