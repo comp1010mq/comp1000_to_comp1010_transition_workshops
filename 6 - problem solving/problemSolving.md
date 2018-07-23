@@ -26,3 +26,5 @@ https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
 
 https://www.hackerrank.com/challenges/equality-in-a-array/problem
 
+https://www.hackerrank.com/challenges/bigger-is-greater/problem
+(Hint: https://stackoverflow.com/questions/1622532/algorithm-to-find-next-greater-permutation-of-a-given-string#1622539)
