@@ -16,7 +16,7 @@ rest of the code
 </div>
 
 <!-- comment -->
-![](figs/ifCondition.png?v=4&s=100)
+![](figs/ifCondition.png?v=4&s=50)
 
 Example:
 
