@@ -12,11 +12,10 @@ if(boolean expression) {
 rest of the code
 ```
 <div>
-<center><img src="figs/ifCondition.png" style="width: 300px;"/></center>
+<center><img src="figs/ifCondition.png" style="width: 200px;"/></center>
 </div>
 
 <!-- comment -->
-![](figs/ifCondition.png?v=4&s=50)
 
 Example:
 
