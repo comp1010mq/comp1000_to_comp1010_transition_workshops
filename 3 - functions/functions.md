@@ -82,7 +82,7 @@ Draw a block diagram for the interaction when a caller calls the function with t
 
 ### Exercise 2
 
-Consider the following functiono definition,
+Consider the following function definition,
 
 ```java
 int roundOff(double a) {
@@ -153,13 +153,13 @@ Define a function that determines if an year passed (store in formal parameter `
 `year = 2016` --> return `true`
 
 #### Mapping 2
-`a = 1800` --> return `false`
+`year = 1800` --> return `false`
 
 #### Mapping 3
-`a = 2018` --> return `false`
+`year = 2018` --> return `false`
 
 #### Mapping 3
-`a = 1600` --> return `true`
+`year = 1600` --> return `true`
 
 ## SCENARIO 3
 
