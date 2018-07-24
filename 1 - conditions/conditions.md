@@ -177,6 +177,9 @@ There are students enrolled in degrees and can graduate if they are enrolled in 
 1. Course in which student is enrolled: `String`. Can be either "UG"/ "UG (Hons)"/ "PG"
 2. Number of credit points completed: `int`.
 
+Note: you check if a `String s` equals another `String t` using `s.equals(t)` and NOT  `s == t`.
+Case insensitive comparison is performed using `s.equalsIgnoreCase(t)`.
+
 ## SCENARIO 2
 
 A website offers discounts based on item categories and quantities. There are four categories - A, B, C, and D. For all categories except D, the following rules exist,
@@ -189,7 +192,7 @@ A website offers discounts based on item categories and quantities. There are fo
 
 For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
 
-Write a piece of code that outputs the percentage discount for a given category (stored in `char cateogry`) and quantity (stored in `int quantity`).
+Write a piece of code that outputs the percentage discount for a given category (stored in `char cateogry` that can be either 'A', 'B', 'C', or 'D') and quantity (stored in `int quantity`).
 
 ## SCENARIO 3
 
