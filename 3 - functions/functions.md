@@ -27,7 +27,9 @@ Syntax of a function definition is:
 ```java
 returnType function(<parameters>) {
     <some code>
-    <return statement>
+    <if>
+    	<return statement>
+    <endif>
     <some code>
 }
 ```
