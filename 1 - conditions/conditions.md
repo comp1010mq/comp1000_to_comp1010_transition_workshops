@@ -189,6 +189,7 @@ A website offers discounts based on item categories and quantities. There are fo
 
 For category D, there is a 1% discount for every item purchased, up to a maximum of 50 items (and hence a maximum of 50% discount).
 
+Write a piece of code that outputs the percentage discount for a given category (stored in `char cateogry`) and quantity (stored in `int quantity`).
 
 ## SCENARIO 3
 
