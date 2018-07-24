@@ -193,7 +193,7 @@ I would like to draw box using the symbol `^`. The specifics of the box (number 
 ```
 
 #### Mapping 2
-`nLines = 7, width = 16`
+`nLines = 8, width = 16`
 
 ```
 ^^^^^^^^^^^^^^^^
