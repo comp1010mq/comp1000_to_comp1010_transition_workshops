@@ -174,7 +174,7 @@ We need to code to vague/abstract/hazy requirements and in this section, we'll t
 
 There are students enrolled in degrees and can graduate if they are enrolled in a non-honors undergraduate course and have completed 72 credit points or more, or enrolled in an honors course and have completed 96 credit points or more, or if they are enrolled in a postgraduate program and have completed 48 credit points or more. Write a piece of code that determines if a specific student is eligible to graduate or not. You may assume that the following inputs are available:
 
-1. Course in which student is enrolled: `String`. Can be either "UG"/ "UG (Hons)"/ "PG"
+1. Course in which student is enrolled: `String`. Can be either `"UG"`/ `"UG (Hons)"`/ `"PG"`
 2. Number of credit points completed: `int`.
 
 Note: you check if a `String s` equals another `String t` using `s.equals(t)` and NOT  `s == t`.
