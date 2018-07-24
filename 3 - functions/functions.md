@@ -31,6 +31,7 @@ returnType function(<parameters>) {
     	<return statement>
     <endif>
     <some code>
+    <return statement>
 }
 ```
 
