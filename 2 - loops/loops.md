@@ -57,7 +57,7 @@ While constructing a logic table, one is strongly encouraged to follow the follo
 ```java
 int a = 10, b = 2, c = 100;
 int result = 0;
-while(a > b || c > a) {
+while(a > b && c > a) {
 	result = result + 1;
 	a = a - 1;
 	c = c / 2;
