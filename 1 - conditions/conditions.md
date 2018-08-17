@@ -116,7 +116,7 @@ Solution:
 
 Both assignment operators are conditional and it is possible, in terms of control flow, that neither of the assignment operators are executed (although mathematically it's not possible in this case). You will get a *Variable max may not have been initialized* error. Diagram of the buggy code:
 
-<center><img src="figs/buggyCode.png" style="width: 150px;"/></center>
+<center><img src="figs/buggyCode.png" style="width: 300px;"/></center>
 
 
 Corrected code:
