@@ -95,7 +95,45 @@ else {
 Write a piece of code for the following flowchart and determine the values of `a, b, c` after the code executes.
 
 
-<center><img src="figs/nestedIfElseExercise.png" style="width: 250px;"/></center>
+### EXERCISE 3
+
+What is wrong with the following code? Draw a flowchart to illustrate the problem. Write the corrected code.
+
+```java
+int a = (int)random(6);
+int b = (int)random(6);
+int max;
+if(a > b) {
+	max = a;
+}
+if(b >= a) {
+	max = b;
+}
+println(max);
+```
+
+Solution:
+
+Both assignment operators are conditional and it is possible, in terms of control flow, that neither of the assignment operators are executed (although mathematically it's not possible in this case). You will get a *Variable max may not have been initialized* error. Diagram of the buggy code:
+
+<center><img src="figs/buggyCode.png" style="width: 300px;"/></center>
+
+
+Corrected code:
+
+
+```java
+int a = (int)random(6);
+int b = (int)random(6);
+int max;
+if(a > b) {
+	max = a;
+}
+else {
+	max = b;
+}
+println(max);
+```
 
 ## Coding to a truth table
 
