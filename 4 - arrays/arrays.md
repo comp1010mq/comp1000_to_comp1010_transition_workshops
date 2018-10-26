@@ -203,7 +203,7 @@ or the more compact diagram,
 <center><img src="figs/arrays-figure6.png" width=300px></center>
 
 
-#Exercises
+# Exercises
 
 ## Exercise 1 
 
