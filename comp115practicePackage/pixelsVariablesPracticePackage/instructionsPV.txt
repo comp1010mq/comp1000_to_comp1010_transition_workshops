@@ -1,0 +1,10 @@
+In each folder, there is a sample output, either as a,
+
+1. png image, or,
+2. mp4 video
+
+your task is to write a program that achieves this output. 
+
+a template is provided as a starting point for question 6.
+
+solutions are provided for all questions for you to compare your solution against.

@@ -1,0 +1,59 @@
+Question 1 - Vertical Lines
+Draw 10 evenly spaced vertical lines as seen in the sample output.
+
+Question 2 - Horizontal Lines
+Draw 10 evenly spaced horizontal lines as seen in the sample output.
+
+Question 3 - Alternating Colours
+Draw 10 evenly spaced vertical lines with alternating colours as seen in the sample output.
+
+Question 4 - Alternating Lines
+Draw 10 lines as seen in the sample output.
+
+Question 5 - Number of Digits
+Write a program that prints the number of digits in an integer.
+
+Question 6 - Sum of Odd Digits
+Write a program that prints the sum of all the odd digits in an integer.
+
+Question 7 - Triangles
+Draw 10 triangles as seen in the sample output.
+
+Question 8 - Circles Across
+Draw circles across the screen with diameters touching as seen in the sample output.
+
+Question 9 - Circles Across with Random Diameter
+Draw circles across the screen with diameters touching as seen in the sample output. The diameter of each circle should be randomly selected.
+
+Question 10 - Circle Border
+Draw a border of circles around the screen as seen in the sample output.
+
+Question 11 - Fibonacci
+Print the first 22 numbers of the fibonacci sequence. Note: the first two numbers of the sequence can be printed before the start of the loop.
+
+Question 12 - Lines from Corner
+Recreate the sample output.
+
+Question 13 - Divisors
+Print all the divisors of an integer.
+
+Question 14 - Greatest Common Divisor (GCD)
+Print the GCD of two numbers.
+
+Question 15 - Circle Grid
+Draw a 5x3 grid of circles in the top right corner as seen in the sample output.
+
+Question 16 - Staggered Circles 1
+Draw a "staircase" of circles as seen in the sample output.
+
+Question 17 - Staggered Circles 2
+Draw a "staircase" of circles in the bottom left corner as seen in the sample output.
+
+Question 18 - Prime Numbers
+Print the first 15 prime numbers.
+
+Question 19 - Brick Wall
+Draw a brick wall as seen in the sample output.
+
+Question 20 - Circles
+Recreate the sample output.

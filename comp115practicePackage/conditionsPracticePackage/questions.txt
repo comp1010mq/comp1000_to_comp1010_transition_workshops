@@ -1,0 +1,35 @@
+Question 1 - Fade
+Draw a yellow square at the centre of the screen at full opacity. The square should fade and only stop fading when the opacity level reaches 50.
+
+Question 2 - Left Right
+When the mouse is clicked on the left half of the screen, draw a circle centered around the mouse position. When the mouse is clicked on the right half of the screen, draw a square centred around the mouse position.
+
+Question 3 - Circle Shrink Grow
+Draw a circle that starts with a diameter of 40 and increases in size. Whenever the circle reaches a diameter of 120, the circle should start decreasing in size. Whenever the circle reaches a diameter of 20, the circle should start increasing in size.
+
+Question 4 - Increasing Diameter
+When the mouse is clicked, a circle with diameter 40 is drawn centered around the mouse position. With every mouse click another circle is drawn with the diameter 20 pixels more than the previous circle drawn. After the diameter of the circle becomes the largest diameter without exceeding the maximum diameter of 130, the diameter should return to the original diameter of 40.
+
+Question 5 - Highlight
+Split the screen into four even vertical sections, when the mouse hovers over one of the sections, that section should become highlighted in purple.
+
+Question 6 - Shape Change
+Mouse click draws a coloured shape. The shapes should alternate between a red circle, green square and blue triangle.
+
+Question 7 - Along Border
+A red square starts at the top left corner of the screen. The square should travel clockwise around the border of the screen.
+
+Question 8 - Changing Background Colour
+The background colour of the screen should continuously change.
+
+Question 9 - Button
+Draw a circle when mouse is clicked. The colour of the circle should be controlled by a button that is drawn on the screen. The button should alternate between blue and orange when clicked. Whatever colour the button is, is the colour that circles should be filled in.
+
+Question 10 - Two Buttons
+Alternate your code from the previous question to add another button that clears the output when clicked.
+
+Question 11 - Rebound
+Red and yellow circles are drawn at a random position in the screen (note the whole circle should be inside the screen area). Both these circles should move in a random direction within the screen. When the edge of the circle reaches the border of the screen, it should rebound off it.
+
+Question 12 - Flickr Loading
+Recreate the loading animation for Flickr. Note that the circle travelling left is always in front of the circle travelling right.
