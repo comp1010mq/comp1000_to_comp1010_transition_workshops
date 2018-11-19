@@ -1,0 +1,65 @@
+\documentclass[11pt]{exam}
+%\printanswers
+
+\usepackage{nopageno}
+\usepackage{color}
+\newcommand{\cc}{\texttt}
+
+\usepackage{listings}
+\lstset{%
+	language=Java,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\tiny,        
+	xleftmargin=17pt,
+        	xrightmargin=5pt,
+	frame=single,
+	breaklines=true,
+	moredelim=**[is][\color{red}]{@}{@}
+}
+
+\lstdefinestyle{buggy}{
+  language=Java,
+  emptylines=1,
+  breaklines=true,
+  basicstyle=\ttfamily\color{black},
+  moredelim=**[is][\color{red}]{@}{@},
+}
+
+\lstdefinestyle{correct}{
+  language=Java,
+  emptylines=1,
+  breaklines=true,
+  basicstyle=\ttfamily\color{black},
+  moredelim=**[is][\color{blue}]{@}{@},
+}
+\begin{document}
+
+\newpage 
+\section{Operators, Expressions}
+\input{01operators}
+
+\newpage 
+\section{Conditions}
+\input{02conditions}
+
+\newpage 
+\section{Loops}
+\input{03loops}
+
+\newpage 
+\section{Functions - 1}
+\input{04functions1}
+
+\newpage 
+\section{Arrays}
+\input{05arrays}
+
+\newpage 
+\section{Functions - 2}
+\input{06functions2}
+
+\newpage 
+\section{Strings}
+\input{07strings}
+\end{document}

@@ -1,0 +1,647 @@
+\documentclass[11pt]{exam}
+\printanswers
+\usepackage{listings}
+
+\begin{document}
+
+\section{Problem solving with arrays and numbers}
+
+\emph{Please go through the concept of "violation" algorithms vs. "validation" algorithms}
+
+\begin{questions}
+
+\question Write a method that when passed an integer, returns the last digit. You may assume that the integer is positive.
+
+\begin{solution}
+\begin{lstlisting}
+	int lastDigit(int n) {
+		return n % 10;
+	}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a method that when passed an integer, returns the sum of its digits. You may assume that the integer is positive.
+
+\begin{solution}
+Iterative:
+\begin{lstlisting}
+	int sumDigits(int n) {
+		int result = 0;
+		while(n > 0) {
+			result+=n%10;
+			n = n / 10;
+		}
+		return result;
+	}
+\end{lstlisting}	
+
+Recursive:
+\begin{lstlisting}
+	int sumDigits(int n) {
+		if(n == 0) {
+			return 0;
+		}
+		return n % 10 + sumDigits(n / 10);
+	}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a method that when passed two integers, returns their greatest common divisor (largest integer that divides both). For example, gcd of 75 and 30 is 15 while gcd of 8 and 15 is 1. You may assume both integers passed are positive.
+
+\begin{solution}
+\begin{lstlisting}
+int gcd(int a, int b) {
+	int smaller;
+	if(a < b)
+		smaller = a;
+	else 
+		smaller = b;
+	for(int i=smaller; i > 1; i--)
+		if(a%i == 0 && b%i == 0)
+			return i;
+	return 1;
+}
+\end{lstlisting}	
+\end{solution}
+
+
+\question Write a method that when passed three integers, returns the highest of the three.
+
+\begin{solution}
+Cheeky answer: (because I didn't say that you cannot use built-in methods)
+\begin{lstlisting}
+	int highest(int a, int b, int c) {
+		return Math.max(a, Math.max(b, c));
+	}
+\end{lstlisting}	
+
+From scratch:
+\begin{lstlisting}
+int highest(int a, int b, int c) {
+	if(a >= b && a >= c)
+		return a;
+	if(b >= c)
+		return b;
+	return c;
+}
+\end{lstlisting}	
+
+Or:
+
+\begin{lstlisting}
+int highest(int a, int b, int c) {
+	if(a >= b)
+		if(a >= c)
+			return a;
+		else
+			return b;
+	else
+		if(b >= c)
+			return b;
+		else
+			return c;
+}
+\end{lstlisting}	
+\end{solution}
+
+
+\question Write a method that when passed an array of integers, returns the number of negative numbers in the array. You may assume that the array is not \texttt{null}.
+
+\begin{solution}
+\begin{lstlisting}
+int countNegatives(int[] arr) {
+	int count = 0;
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] < 0) {
+			count++;
+		}
+	}
+	return count;
+}
+\end{lstlisting}	
+
+Using built-in iterator:
+\begin{lstlisting}
+int countNegatives(int[] arr) {
+	int count = 0;
+	for(int item: arr) {
+		if(item < 0) {
+			count++;
+		}
+	}
+	return count;
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a method that when passed an array of \texttt{double} values and another \texttt{double} value ($key$), returns the number of times $key$ exists in the array. You may assume that the array is not \texttt{null}.
+
+\begin{solution}
+\begin{lstlisting}
+int countOccurrences(double[] arr, double key) {
+	int count = 0;
+	for(double item: arr) {
+		if(item == key) {
+			count++;
+		}
+	}
+	return count;
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a method that when passed two arrays of \texttt{double} values, returns \texttt{true} if they are identical, and \texttt{false} otherwise. You may assume that each array has at least one item.
+
+\begin{solution}
+\begin{lstlisting}
+boolean identical(double[] a, double[] b) {
+	if(a.length != b.length)
+		return false;
+	
+	for(int i=0; i < a.length; i++) {
+		if(a[i] != b[i]) {
+			return false;	
+		}
+	}
+	
+	return true;
+}
+\end{lstlisting}	
+\end{solution}
+
+\question (Challenging) Write a method that when passed an array of integers, return \texttt{true} if there is no item in the array that occurs more than once, and \texttt{false} otherwise.
+
+\begin{solution}
+Solution 1:
+\begin{lstlisting}
+boolean noDuplicates(int[] arr) {
+	for(int i=0; i < arr.length; i++) {
+		for(int k=i+1; k < arr.length; k++) {
+			if(arr[i] == arr[k]) {
+				return false;
+			}
+		}
+	}
+	return true;	
+}
+\end{lstlisting}	
+
+Solution 2 (delegated):
+
+\begin{lstlisting}
+int countOccurrences(int[] arr, int key) {
+	int count = 0;
+	for(int item: arr) {
+		if(item == key) {
+			count++;
+		}
+	}
+	return count;
+}
+\end{lstlisting}	
+
+boolean noDuplicates(int[] arr) {
+	for(int item: arr) {
+		if(countOccurrences(arr, item) > 1) {
+			return false;
+		}
+	}
+	return true;
+}
+\end{solution}
+
+\newpage \section{Classes and Objects}
+
+\question Write a class definition, including instance variables, getters and setters, default and parameterized constructors, area(), and compareTo method to define a Circle, as represented by its radius.
+
+\begin{solution}
+\begin{lstlisting}
+public class Circle {
+	private double radius;
+	
+	public void setRadius(double r) {
+		if(r < 0)
+			radius = 0;
+		else
+			radius = r;
+	}
+	
+	public double getRadius() {
+		return radius;
+	}
+		
+	public Circle() {
+		setRadius(0);
+	}
+	
+	public Circle(double r) {
+		setRadius(r);
+	}
+	
+	public double area() {
+		return Math.PI * radius * radius;
+	}
+	
+	public int compareTo(Circle other) {
+		if(radius > other.radius)
+			return 1;
+		if(radius < other.radius)
+			return -1;
+		return 0;
+	}
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a class definition, including instance variables, getters and setters, default and parameterized constructors, perimeter(), and compareTo method to define a Rectangle, as represented by its width and height.
+
+\begin{solution}
+\begin{lstlisting}
+public class Rectangle {
+	private double width, height;
+	
+	public void setWidth(double w) {
+		if(w < 0) {
+			w*=-1;
+		}
+		width = w;
+	}
+	
+	public void setHeight(double h) {
+		if(h < 0) {
+			h*=-1;
+		}
+		height = h;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+	
+	public double getHeight() {
+		return height;
+	}
+	
+	public Rectangle(double w, double h) {
+		setWidth(w);
+		setHeight(h);
+	}
+
+	public Rectangle() {
+		setWidth(0);
+		setHeight(0);
+	}
+
+	public double area() {
+		double result = width * height;
+		return result;
+	}
+	
+	public boolean isSquare() {
+		if(width == height)
+			return true;
+		else
+			return false;
+	}
+	
+	public int compareTo(Rectangle other) {
+		if(area() > other.area())
+			return 1;
+		if(area() < other.area())
+			return -1;
+		return 0;
+	}
+}
+\end{lstlisting}	
+\end{solution}
+
+
+\question Write a class definition, including instance variables, getters and setters, default and parameterized constructors, totalStockPrice(), and compareTo method to define a StockItem, as represented by its unit price and quantity left. Total stock price is defined as the product of unit price and quantity left.
+
+\begin{solution}
+\begin{lstlisting}
+public class StockItem {
+	private double price;
+	private int quantity;
+		
+	public double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(double price) {
+		this.price = Math.abs(price);
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = Math.abs(quantity);
+	}
+	
+	public StockItem(String n, double p, int q) {
+		setName(n);
+		setPrice(p);
+		setQuantity(q);
+	}
+	
+	public String toString() {
+		return name+" priced at "+price+", quantity left "+quantity;
+	}
+
+	public double totalStockPrice() {
+		// TODO Auto-generated method stub
+		return price * quantity;
+	}
+	
+	public int compareTo(StockItem other) {
+		double total1 = this.totalStockPrice();
+		double total2 = other.totalStockPrice();
+		
+		if(total1 > total2)
+			return 1;
+		if(total1 < total2)
+			return -1;
+		return 0;
+	}	
+}
+\end{lstlisting}	
+\end{solution}
+
+\newpage
+
+\question Consider the following class definition,
+
+\begin{lstlisting}
+class Box {
+   private double width, breadth, height;
+   
+   //assume getters, setters
+   public Box(double w, double b, double h) {
+   	  setWidth(w);
+   	  setBreadth(b);
+   	  setHeight(h);
+   }
+   
+   public double volume() {
+   	  return width * breadth * height;
+   }
+   
+   public int compareTo(Box other) {
+   	  if(volume() > other.volume())
+   	  	 return 1;
+   	  if(volume() < other.volume())
+   	     return -1;
+   	  return 0;
+   }
+}	
+\end{lstlisting}
+
+Outside the class, declare and instantiate an object \texttt{myBox} of class \texttt{Box} with width = 6.4, breadth = 9.6, and height = 1.5.
+
+\begin{solution}
+\begin{lstlisting}
+Box myBox = new Box(6.4, 9.6, 1.5);	
+\end{lstlisting}
+\end{solution}
+
+Assume a second \texttt{Box} object \texttt{yourBox}. Store the outcome of comparing \texttt{myBox} (as the calling object) with \texttt{yourBox} (as the parameter object) in a variable \texttt{status}.
+
+\begin{solution}
+\begin{lstlisting}
+int status = myBox.compareTo(yourBox);
+\end{lstlisting}
+\end{solution}
+
+Assume the following code outside the class \texttt{Box}
+
+\begin{lstlisting}
+	Box[] boxes = new Box[100];
+	for(int i=0; i < boxes.length; i++) {
+		double w = nextInt(10);
+		double b = nextInt(10);
+		double h = nextInt(10);
+		boxes[i] = new Box(w, b, h);
+	}
+\end{lstlisting}
+
+Add some code after the given code that displays the breadth of boxes with width more than 7.
+
+\begin{solution}
+\begin{lstlisting}
+for(int i=0; i < boxes.length; i++) {
+	if(boxes[i].getWidth() > 7) {
+		System.out.println(boxes[i].getBreadth());
+	}
+}
+\end{lstlisting}
+
+Or (using the built-in iterator):
+
+\begin{lstlisting}
+for(Box b: boxes) {
+	if(b.getWidth() > 7) {
+		System.out.println(b.getBreadth());
+	}
+}
+\end{lstlisting}
+\end{solution}
+
+\newpage
+\question Consider the following class \texttt{Service}.
+
+\begin{lstlisting}
+class Service {
+	private int n;
+	
+	//assume setters, getters, constructors
+	
+	public int doubleUp() {
+		setN(2*n); //setter is assumed to be there
+	}
+	
+	public static int multiply(int a, int b) {
+		return a * b;
+	}
+}	
+\end{lstlisting}
+
+Further assume an object \texttt{myService} of class \texttt{Service} for which $n = 5$.
+
+What's the correct way to call the method \texttt{doubleUp} - \texttt{myService.doubleUp()}, or \texttt{Service.doubleUp()}? 
+
+\begin{solution}
+	\texttt{myService.doubleUp()}
+\end{solution}
+
+
+What about \texttt{multiply} - \texttt{myService.multiply(2, 4)}, or \texttt{Service.multiply(2, 4)}?
+
+\begin{solution}
+	\texttt{Service.multiply(2, 4)}
+\end{solution}
+
+\newpage \section{Searching and Sorting}
+\question Write a method that when passed an integer array, sorts it in ascending order using insertion sort.
+
+\question Write a method that when passed an integer array, sorts it in ascending order using selection sort.
+
+\question Write a method that when passed an integer array, assumed to be sorted in ascending order, and an integer \texttt{key}, returns the index at which \texttt{key} is found, using binary search.
+
+\question For which algorithm, is the central principle, "for each item of the array, move the current item into its rightful place, \emph{so far}"
+
+\begin{solution}
+	insertion sort
+\end{solution}
+
+\question For which algorithm, is the central principle, "for each item of the array, swap it with the smallest item in the remaining array"
+
+\begin{solution}
+	selection sort
+\end{solution}
+
+\question For which algorithm, is the central principle (loosely speaking), "split the array in half and the target is either at that index, or if there, it must be to the left (if smaller than median), or to the right (if higher than median)"
+ 
+\begin{solution}
+	binary search
+\end{solution}
+ 
+\newpage \section{Recursion}
+
+\question What are the values of \texttt{result1, result2, result3} when the following code is executed? What does that tell you about the method \texttt{foo}?
+
+\begin{lstlisting}
+public class Client {
+
+	public static int foo(int n) {
+		if(n <= 1)
+			return 0;
+		return 1 + foo(n/2);
+	}
+	
+	public static void main(String[] args) {
+		int result1 = foo(32);
+		int result2 = foo(64);
+		int result3 = foo(4);
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+\begin{verbatim}
+result1:
+
+foo(32) = 1 + foo(16)
+foo(16) = 1 + foo(8)
+foo(8) = 1 + foo(4)
+foo(4) = 1 + foo(2)
+foo(2) = 1 + foo(1)
+foo(1) = 0
+Passing back,
+foo(2) = 1 + 0 = 1
+foo(4) = 1 + 1 = 2
+foo(8) = 1 + 2 = 3
+foo(16) = 1 + 3 = 4
+foo(32) = 1 + 4 = 5
+
+result1 = 5
+
+Similarly,
+
+result2 = 6
+result3 = 2
+
+It tells you that foo is a log (base 2) computing function.
+\end{verbatim}
+\end{solution}
+
+\question What is the value of \texttt{result} when the following code is executed? Are there any values for the parameter to \texttt{bar} when the method will executed indefinitely causing \texttt{StackOverflowError}?
+
+\begin{lstlisting}
+public class Client {
+
+	public static int bar(int n) {
+		if(n == 1)
+			return 0;
+		return n + bar(n - 3);
+	}
+	
+	public static void main(String[] args) {
+		int result = bar(10);
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+bar(10) = 10 + bar(7) = 10 + 7 + bar(4) = 10 + 7 + 4 + bar(1) = 10 + 7 + 4 + 0 = 21
+\vskip 0.5cm
+yes, it will execute forever for any $n$ for which remainder by 3 is NOT 1.
+\end{solution}
+
+
+\question Write a \textbf{recursive} method that when passed an integer (assume it is more than 0), returns the number of digits in the integer. Hint: you get the last digit of an integer $n$ by $n\%10$ and the rest of the number by $n/10$.
+
+\question Write a \textbf{recursive} method that when passed an integer (assume it is more than 0), returns the sum of digits in the integer. 
+
+\question Write a \textbf{recursive} method that when passed an integer (assume it is more than 0), returns the product of digits in the integer. 
+
+\question Write a \textbf{recursive} method that when passed an integer (assume it is more than 0), returns the highest digit in the integer.
+
+\question Write a \textbf{recursive} method that when passed two integers (assume both are more than 0), returns their \emph{greatest common divisor} (gcd). Euclid's algorithm states that $gcd(a, b) = gcd(b, a\%b)$ if $b \neq 0$ and $gcd(a, 0) = a$ .
+
+Thus,
+
+\begin{verbatim}
+gcd(80, 56)
+=gcd(56, 24)
+=gcd(24, 8)
+=gcd(8, 0)
+=8
+\end{verbatim}
+
+\question Write a \textbf{recursive} method that when passed a String (assume not \texttt{null}), returns the reverse of the String.
+
+\question Write a \textbf{recursive} method that when passed a String (assume not \texttt{null}), returns \texttt{true} if it's a palindrome (exactly the same when reversed), and \texttt{false} if it's not a palindrome. Any String with 0 or 1 characters (like "" or "A") is a palindrome)
+
+\newpage \section{Lists}
+
+
+\question What are the contents of \texttt{list} when the following code is executed?
+
+\begin{lstlisting}
+ArrayList<Integer> list = new ArrayList<Integer>();
+
+for(int i=0; i < 10; i++) {
+    if(i % 2 == 0) {
+        list.add(2*i + 1);	
+    }
+    else {
+        list.add(2*i - 1);
+    }
+}
+
+list.remove(4);
+
+list.set(7, list.get(7) * 10);
+
+for(int i=0; i < list.size(); i++) {
+    if(i % 2 == 0) {
+        list.set(i, list.get(i) + 1);
+    }
+}
+\end{lstlisting}
+
+
+\question Complete the method \texttt{countOdds}, that when passed an \texttt{ArrayList} of integer objects assumed to be not \texttt{null}), returns the number of items that are odd (not divisible by 2).
+
+\begin{lstlisting}
+public static int countOdds(ArrayList<Integer> list)	
+\end{lstlisting}
+
+\question Write a method that returns \texttt{true} an \texttt{ArrayList} of doubles is sorted in ascending order, \texttt{false} otherwise
+
+\question Write a method that removes all negative items from an \texttt{ArrayList} of doubles
+
+\end{questions}
+
+\end{document}

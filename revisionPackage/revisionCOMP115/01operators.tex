@@ -1,0 +1,182 @@
+\begin{questions}
+\printanswers
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 29 % 5;
+\end{lstlisting}
+
+\begin{solution}
+4
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 17 / 5;
+\end{lstlisting}
+
+\begin{solution}
+3
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	float result = 17 / 5;
+\end{lstlisting}
+
+\begin{solution}
+3 (or 3.0)
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	float result = 17 / 5.0;
+\end{lstlisting}
+
+\begin{solution}
+3.4
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	boolean result = 5 > 3 && 6 < 4 && 3 == 3;
+\end{lstlisting}
+
+\begin{solution}
+false
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	boolean result = (true && true) || (true && false);
+\end{lstlisting}
+
+\begin{solution}
+true
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	boolean e1 = (15/4 == 3);
+	boolean e2 = (6%4 == 2);
+	boolean result = e1 && e2;
+\end{lstlisting}
+
+\begin{solution}
+true (e1 and e2 are both true)
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	boolean result = 5 > 3 || 6 < 4 && 3 == 3;
+\end{lstlisting}
+
+\begin{solution}
+true
+\end{solution}
+
+\question Write an expression that adds 5 to the product of 2 and 7.
+
+\begin{solution}
+\begin{lstlisting}
+2 * 7 + 5 (or 5 + 2 * 7)
+\end{lstlisting}
+\end{solution}
+
+\question Write an expression that multiplies the sum of 2 and 7 by 5.
+
+\begin{solution}
+\begin{lstlisting}	
+5 * (2 + 7)
+\end{lstlisting}
+\end{solution}
+
+\question Write an expression that evaluates to the last digit of a given integer \texttt{n} (assume the given integer is not negative).
+
+\begin{solution}
+\begin{lstlisting}	
+n % 10
+\end{lstlisting}
+\end{solution}
+
+\question Write an expression that evaluates to \texttt{true} if a given integer \texttt{n} is between 1 and 6 (including 1 and 6), otherwise evaluates to \texttt{false}.
+
+\begin{solution}
+\begin{verbatim}
+n >= 1 && n <= 6 
+\end{verbatim}
+\end{solution}
+
+\question Write an expression that evaluates to \texttt{true} if a given integer is outside the range [1...6] (including 1 and 6), otherwise evaluates to \texttt{false}.
+
+\begin{solution}
+\begin{verbatim}
+n < 1 || n > 6
+or
+!(n >= 1 && n <= 6)
+\end{verbatim}
+\end{solution}
+
+
+\question Write an assignment statement that assigns, to a \texttt{boolean} variable \texttt{result}, \texttt{true} if two \texttt{boolean} values $e1$ and $e2$ are different, otherwise\texttt{false}. This is known as the \texttt{XOR} operator.
+
+\begin{solution}
+\begin{lstlisting}
+boolean result = (e1 != e2); //brackets for clarity	
+\end{lstlisting}
+\end{solution}
+
+\question Write an expression that evaluates to \texttt{true} if a given integer \texttt{n} is a multiple of 3 but not a multiple of 27, otherwise evaluates to \texttt{false}.
+
+\begin{solution}
+\begin{lstlisting}	
+n % 3 == 0 && n % 27 != 0
+\end{lstlisting}
+a second way is,
+\begin{lstlisting}	
+n % 27 == 3 || n% 27 == 9
+\end{lstlisting}
+\end{solution}
+
+\question Write an assignment statement that assigns, to an integer variable \texttt{result}, the remainder when 57 is divided by 6.
+
+\begin{solution}
+\begin{lstlisting}	
+int result = 57 % 6;
+\end{lstlisting}
+\end{solution}
+
+\question \textbf{(Tricky)} Is the following code going to executed successfully? And if so, what is the value of $b$ when the it is executed?
+
+\begin{lstlisting}
+float a = 1.5;
+int b = 2;
+b = b + a;
+\end{lstlisting}
+
+\begin{solution}
+It does not execute because, in the expression on line 3, right hand side evaluates to a float which cannot be copied into an int variable on the left hand side ($b$).
+\end{solution}
+
+
+\question \textbf{(Tricky)} Is the following code going to executed successfully? And if so, what is the value of $b$ when the it is executed?
+
+\begin{lstlisting}
+float a = 1.5;
+int b = 2;
+b+=a;
+\end{lstlisting}
+
+\begin{solution}
+It executes successfully because \texttt{b+=a} is equivalent to \texttt{b=(int)(b+a)} and NOT \texttt{b=b+a}. Thus, \texttt{b = (int)(2+1.5) = (int)3.5 = 3}
+\end{solution}
+
+\end{questions}

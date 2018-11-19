@@ -1,0 +1,210 @@
+\begin{questions}
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+int foo(int[] a) {
+	int c = 0;
+	for(int i = 0; i < a.length; i++) {
+		if(a[i] == 0) {
+			c++;
+		}
+	}
+	return c;	
+}
+\end{lstlisting}
+
+What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int[] arr = {6,0,9,0,0,8,0,8,9,7,0,0};
+	int result = foo(arr);
+\end{lstlisting}
+
+\begin{solution}
+\begin{lstlisting}
+6	
+\end{lstlisting}	
+\end{solution}
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+boolean foo(int[] a, int target) {
+	for(int i = 0; i < a.length; i++) {
+		if(a[i] == target) {
+			return true;
+		}
+	}
+	return false;	
+}
+\end{lstlisting}
+
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int[] arr = {2,1,3,6,4,9,7,8};
+	boolean result = foo(arr, 5);
+\end{lstlisting}
+
+\begin{solution}
+\texttt{false}
+\end{solution}
+
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int[] arr = {2,1,3,6,4,9,7,8};
+	boolean result = foo(arr, 9);
+\end{lstlisting}
+\end{parts}
+
+\begin{solution}
+\texttt{true}
+\end{solution}
+
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+boolean foo(int[] a) {
+	for(int i = 0; i < a.length; i++) {
+		if(a[i]%2 == 1) {
+			return false;
+		}
+	}
+	return true;	
+}
+\end{lstlisting}
+
+Write a piece of code that calls the function \cc{foo} by passing an integer array \cc{arr} and storing the value returned in a variable \texttt{result}. You may assume the array \cc{arr} has at least one item in it.
+
+\begin{solution}
+\begin{lstlisting}
+boolean result = foo(arr);
+\end{lstlisting}	
+\end{solution}
+
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+boolean foo(int[] a, int [] b) {
+	if(a.length != b.length) {
+		return false;
+	}
+	for(int i = 0; i < a.length; i++) {
+		if(a[i] != b[i]) {
+			return false;
+		}
+	}
+	return true;	
+}
+\end{lstlisting}
+
+\begin{parts}
+\part Write a piece of code that calls the function \cc{foo} by passing two integer arrays \cc{myArray, yourArray} and storing the value returned in a variable \texttt{result}. You may assume the arrays \cc{myArray, yourArray} both have at least one item each.
+
+\begin{solution}
+\begin{lstlisting}
+boolean result = foo(myArray, yourArray);
+\end{lstlisting}	
+\end{solution}
+
+\part Explain briefly what is the purpose of function \cc{foo}.
+\begin{solution}
+return \texttt{true} if both arrays are identical (in terms of content), \texttt{false} otherwise.
+\end{solution}
+\end{parts}
+
+\question Write a function that when passed an array containing floating-point values, doubles each item of the array. Remember that modifying the formal array inside a function modifies the actual array passed.
+
+\begin{solution}
+\begin{lstlisting}
+void doubleUp(float[] arr) {
+	for(int i=0; i < arr.length; i++) {
+		arr[i]*=2;
+	}
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a function that when passed an array containing floating-point values, negates each negative item of the array so that it becomes positive.
+
+\begin{solution}
+\begin{lstlisting}
+void makeAbsolute(float[] arr) {
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] < 0) {
+			arr[i]*=-1;
+		}
+	}
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Write a function that when passed an integer array, divides every even number in the array by 2.
+
+\begin{solution}
+\begin{lstlisting}
+void divideEvensByTwo(float[] arr) {
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] % 2 == 0) {
+			arr[i]/=2;
+		}
+	}
+}	
+\end{lstlisting}	
+\end{solution}
+
+\question \textbf{(somewhat challenging for most)} Write a function that when passed an integer array, resets any composite (non-prime) number to 0. You may define a \emph{helper} method.
+
+\begin{solution}
+\begin{lstlisting}
+boolean isPrime(int n) { //helper
+	if(n < 2) {
+		return false;
+	}
+	for(int i=2; i*i <= n; i++) {
+		if(n%i == 0) {
+			return false;
+		}	
+	}
+	return true;
+}
+
+void resetComposites(int[] arr) {
+	for(int i=0; i < arr.length; i++) {
+		if(isPrime(arr[i]) == false) {
+			arr[i] = 0;
+		}
+	}
+}	
+\end{lstlisting}	
+\end{solution}
+
+\question \textbf{(somewhat challenging for most)} Write a function that when passed an integer array, returns an array with only the positive items from that array.
+
+\begin{solution}
+\begin{lstlisting}
+int[] getPositives(int[] arr) {
+	int countPositives = 0;
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] > 0) {
+			countPositives++;
+		}
+	}
+	
+	int[] result = new int[countPositives];
+	int targetIndex = 0;
+	
+	for(int i=0; i < arr.length; i++) {
+		if(arr[i] > 0) {
+			result[targetIndex] = arr[i];
+			targetIndex++;
+		}
+	}
+	
+	return result;
+}	
+\end{lstlisting}	
+\end{solution}
+
+\end{questions}

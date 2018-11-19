@@ -1,0 +1,256 @@
+\begin{questions}
+
+\begin{solution}
+	
+\end{solution}
+
+\question
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 0;
+	int a = 5;
+	int b = 3;
+	for(int i = 1; i <= a; i++) {
+		result+=b;
+	}
+\end{lstlisting}
+
+\begin{solution}
+15
+\end{solution}
+
+
+\part What is the value stored in \cc{result} in terms of \cc{a, b}? 
+
+\begin{solution}
+\texttt{a * b}
+\end{solution}
+\end{parts}
+
+\question
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 0;
+	int a = 5;
+	int b = 3;
+	for(int i = 1; i < a; i++) {
+		result+=b;
+	}
+\end{lstlisting}
+
+\begin{solution}
+12
+\end{solution}
+
+\part What is the value stored in \cc{result} in terms of \cc{a, b}? 
+
+\begin{solution}
+\texttt{(a-1) * b}		
+\end{solution}
+\end{parts}
+
+\question
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 1;
+	int x = 5;
+	int n = 3;
+	for(int i = 1; i <= n; i++) {
+		result*=x;
+	}
+\end{lstlisting}
+
+\begin{solution}
+125	
+\end{solution}
+
+\part What is the value stored in \cc{result} in terms of \cc{x, n}? 
+
+\begin{solution}
+$x^n$	
+\end{solution}
+\end{parts}
+
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+int result = 0;
+for(int i = 1; i <= 10; i++) {
+	if(i != 4) {
+		result++;
+	}
+	else {
+		result+=2;
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+11
+\end{solution}
+
+\question
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+int result = 0;
+int a = 4;
+int b = 3;
+for(int i = 1; i <= a; i++) {
+	for(int k=1; k <= b; k++) {
+		result++;
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+12
+\end{solution}
+
+\part What is the value stored in \cc{result} in terms of \cc{a, b}? 
+
+\begin{solution}
+a * b
+\end{solution}
+
+\part Based on your answer to part (b), what is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+int result = 0;
+int a = 10;
+int b = 10;
+for(int i = 1; i <= a; i++) {
+	for(int k=1; k <= b; k++) {
+		result++;
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+100	
+\end{solution}
+
+\end{parts}
+
+\question
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large, style=buggy]
+int result = 0;
+int a = 10;
+int b = 10;
+for(int i = 1; i <= a; i++) {
+	for(int k=@i@; k <= b; k++) {
+		result++;
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+55
+\end{solution}
+
+\part \textbf{(challenging)} What is the value stored in \cc{result} in terms of \cc{a, b}? 
+
+\begin{solution}
+$b + (b - 1) + \ldots + (b - a + 1)$
+\end{solution}
+
+\end{parts}
+
+\question Write a piece of code that outputs the following in the console, using a \textbf{loop}. Use \cc{print()} statement.
+
+\begin{verbatim}
+	2 5 8 11 14 17 20 23 26 29 32 35 38 41 44 47 50
+\end{verbatim}
+
+\begin{solution}
+\begin{lstlisting}
+for(int i=2; i <= 50; i+=3)
+	print(i+" ");	
+\end{lstlisting}
+\end{solution}
+
+\question Write a piece of code that outputs the following in the console, using a \textbf{loop}. Use \cc{print()} statement.
+
+\begin{verbatim}
+	100 95 90 85 80 75 70 65 60 55 50 45 40 35 30 25 20
+\end{verbatim}
+
+\begin{solution}
+\begin{lstlisting}
+for(int i=100; i >= 20; i-=5)
+	print(i+" ");	
+\end{lstlisting}
+\end{solution}
+
+\question Write a piece of code that outputs the following in the console, using a \textbf{loop}. Use \cc{print()} statement.
+
+\begin{verbatim}
+	1 2 4 8 16 32 64 128 256 512 1024 2048 4096 8192
+\end{verbatim}
+
+\begin{solution}
+\begin{lstlisting}
+for(int i=1; i <= 8192; i*=2)
+	print(i+" ");	
+\end{lstlisting}
+\end{solution}
+
+\question Write a piece of code that outputs the following in the console, using a \textbf{loop}. Use \cc{print()} statement. \color{red}IMPORTANT: \color{black} Pay attention to the pattern, this is a tricky one.
+
+\begin{verbatim}
+	7 14 21 28 35 42 49 56 63 77 84 91 98 105 112 119 126 133 147
+\end{verbatim}
+
+\begin{solution}
+\begin{lstlisting}
+for(int i=7; i <= 147; i+=7) {
+	if(i%10 != 0) {
+		print(i+" ");
+	}
+}
+\end{lstlisting}
+\end{solution}
+
+
+\question Assuming an integer variable \cc{n} such that $1 \leq n \leq 10$, write a piece of code that stores into an integer variable \texttt{fact} the product of the first \cc{n} positive integers, that is, $1 * 2 * \ldots n$.
+
+\begin{solution}
+\begin{lstlisting}
+int fact = 1;
+for(int i=1; i <= n; i++) {
+	fact*=i;	
+}
+\end{lstlisting}
+\end{solution}
+
+\question Assuming an integer variable $n \geq 1$, write a piece of code that stores into a \cc{boolean} variable \texttt{isPrime},
+	
+	\begin{itemize}
+	\item \cc{true} if \cc{n} is a prime number.
+	\item \cc{false} if \cc{n} is not a prime number.	
+	\end{itemize}
+	
+	An integer is called a \emph{prime} if it more than 1 and is divisible only by 1 and itself.
+	
+\begin{solution}
+\begin{lstlisting}
+boolean isPrime = true; //assume it's a prime
+for(int i=2; i*i <= n; i++) {
+	if(n%i == 0) {
+		isPrime = false;
+	}
+}
+\end{lstlisting}
+\end{solution}
+\end{questions}

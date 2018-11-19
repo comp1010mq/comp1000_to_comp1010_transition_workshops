@@ -1,0 +1,222 @@
+\begin{questions}
+
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+	int foo(int a) {
+		return a*a;
+	}
+\end{lstlisting}
+
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(4);
+\end{lstlisting}
+
+\begin{solution}
+16
+\end{solution}
+
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(foo(4));
+\end{lstlisting}
+
+\begin{solution}
+256
+\end{solution}
+
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(foo(4) - 6);
+\end{lstlisting}
+
+\begin{solution}
+100	
+\end{solution}
+	
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(foo(4) - foo(3));
+\end{lstlisting}	
+
+\begin{solution}
+49	
+\end{solution}
+\end{parts}
+
+\question Consider the following definition for function \cc{foo}.
+
+\begin{lstlisting}[basicstyle=\large]
+int foo(int a, int b) {
+	if(a > b) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}
+\end{lstlisting}
+
+\begin{parts}
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(4, 8);
+\end{lstlisting}
+
+\begin{solution}
+8	
+\end{solution}
+
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(13, 8);
+\end{lstlisting}
+
+\begin{solution}
+13	
+\end{solution}
+
+\part What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(foo(9, 5), 7);
+\end{lstlisting}
+
+\begin{solution}
+9
+\end{solution}
+
+\part Without knowing the values of \cc{a, b, c, d, e, f}, what is it that you can tell about the value of \cc{result} when the following code executes?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = foo(foo(foo(a, b), foo(c, d)), foo(e, f));
+\end{lstlisting}
+
+\begin{solution}
+\texttt{result} stores the highest of $a, b, c, d, e, f$.	
+\end{solution}
+
+\part Without knowing the values of \cc{a, b, c, d, e, f}, what is it that you can say about the value of \cc{result1, result2} (comparatively) when the following code executes?
+
+\begin{lstlisting}[basicstyle=\large]
+int result1 = foo(foo(foo(a, b), foo(c, d)), foo(e, f));
+int result2 = foo(foo(foo(foo(foo(a, b), c), d), e), f);
+\end{lstlisting}
+
+\begin{solution}
+\texttt{result1} and \texttt{result2} will be equal.
+\end{solution}
+\end{parts}
+
+\question Write a function that when passed two floating-point variables, returns the smaller of the two.
+
+\begin{solution}
+\begin{lstlisting}
+float smaller(float a, float b) {
+	if(a < b) {
+		return a;
+	}
+	else {
+		return b;
+	}
+}	
+\end{lstlisting}
+\end{solution}
+
+\question Write a function that when passed two floating-point variables, returns \cc{true} if they are both positive, and \cc{false} otherwise.
+
+\begin{solution}
+\begin{lstlisting}
+boolean bothPositive(float a, float b) {
+	if(a > 0 && b > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}	
+\end{lstlisting}
+\end{solution}
+
+\question Write a function that when passed two integers, returns \cc{true} if they are both even, and \cc{false} otherwise.
+
+\begin{solution}
+\begin{lstlisting}
+boolean bothEven(float a, float b) {
+	if(a % 2 == 0 && b % 2 == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}	
+\end{lstlisting}
+\end{solution}
+
+\question Write a function that when passed two integers, returns the highest integer by which they are both divisible. Such an integer is called the \emph{greated common divisor}. For example, greatest common divisor of 40 and 24 is 8, that of 32 and 27 is 1, that of 12 and 12 is 12, that of 24 and 48 is 24.
+
+\begin{solution}
+Solution 1: very inefficient
+\begin{lstlisting}
+int gcd(int a, int b) {
+	int result = 1;
+	int smaller = a; //assume a < b
+	if(b < a) {
+		smaller = b;
+	}
+	for(int i=1; i < smaller; i++) {
+		if(a % i == 0 && b % i == 0) {
+			result = i;
+		}
+	}
+	return result;
+}
+\end{lstlisting}	
+
+Solution 2: better
+\begin{lstlisting}
+int gcd(int a, int b) {
+	int result = 1;
+	int smaller = a; //assume a < b
+	if(b < a) {
+		smaller = b;
+	}
+	for(int i=smaller; i > 1; i--) {
+		if(a % i == 0 && b % i == 0) {
+			return i;
+		}
+	}
+	return 1; //no common divisor
+}
+\end{lstlisting}	
+
+Solution 3: Euclid, you beauty :)
+\begin{lstlisting}
+int gcd(int a, int b) {
+	if(a < b) {
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	//so we are certain that a >= b
+	
+	while(b != 0) {
+		int temp = a % b;
+		a = b;
+		b = temp;
+	}
+	
+	return a;
+}
+\end{lstlisting}	
+\end{solution}
+
+\end{questions}

@@ -1,0 +1,209 @@
+\begin{questions}
+\question
+What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	float result = 1.5;
+	int a = 12, b = 5;
+	if(b > a) {
+		result+=0.3;
+	}
+	else {
+		result-=0.3;
+	}
+\end{lstlisting}
+
+\begin{solution}
+1.2	
+\end{solution}  \question
+What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	float result = 1.5;
+	int a = 12, b = 5;
+	if(a % b == a / b) {
+		result+=0.3;
+	}
+	else {
+		result-=0.3;
+	}
+\end{lstlisting}
+
+\begin{solution}
+1.8
+\end{solution}  \question
+What is the value of \cc{result} when the following code is executed, if,
+
+\begin{enumerate}
+\item \cc{a = 7, b = 12}
+\item \cc{a = 15, b = 12}
+\item \cc{a = 12, b = 12}
+\end{enumerate}
+
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 4;
+	if(b > a) {
+		result = 1;
+	}
+	else if(b < a) {
+		result = -1;
+	}
+	else {
+		result = 0;
+	}	
+\end{lstlisting}
+
+\begin{solution}
+	\item \cc{a = 7, b = 12 -> result = 1}
+\item \cc{a = 15, b = 12 -> result = -1}
+\item \cc{a = 12, b = 12 -> result = 0}
+
+\end{solution}  \question
+For what range of \cc{marks}, will the value of \cc{result} when the following code is executed, be 2?
+
+\begin{lstlisting}[basicstyle=\large]
+	int result = 0;
+	int marks = (int)random(101); //between 0 and 100
+	if(marks < 50)
+		result = 0;
+	else if(marks < 65)
+		result = 1;
+	else if(marks < 75)
+		result = 2;
+	else if(marks < 85)
+		result = 3;
+	else
+		result = 4;
+\end{lstlisting}
+
+\begin{solution}
+65 to 74
+\end{solution}  \question
+Assuming the existence of an integer variable \cc{data} with some value stored in it, write a piece of code that assigns the absolute value of \cc{data} into another integer variable \cc{result} 
+
+\begin{solution}
+\begin{lstlisting}
+	if(data >= 0)
+		result = data;
+	else
+		result = -data;
+\end{lstlisting}
+\end{solution}  \question
+Assuming the existence of two integer variables \cc{a, b} with some values stored in them, write a piece of code that assigns, to a third integer variable \cc{result},
+
+	\begin{enumerate}
+	\item 1 if both 	\cc{a, b} are positive
+	\item -1 if both \cc{a, b} are negative
+	\item 0 in all other cases
+	\end{enumerate}
+
+\begin{solution}
+\begin{lstlisting}
+	int result = 0;
+	if(a > 0 && b >  0)
+		result = 1;
+ 	if(a < 0 && b < 0)
+ 		result = -1;
+ 	//in all other cases, result
+ 	//remains unchanged (0)
+\end{lstlisting}
+\end{solution}  \question
+Assuming the existence of two integer variables \cc{a, b} with some values stored in them, write a piece of code that assigns, to a third integer variable \cc{result},
+
+	\begin{enumerate}
+	\item 1 if both 	\cc{a, b} are even
+	\item -1 if both \cc{a, b} are odd
+	\item 0 in all other cases
+	\end{enumerate}
+	
+\begin{solution}
+\begin{lstlisting}
+	int result = 0;
+	if(a % 2 == 0 && b % 2 ==  0)
+		result = 1;
+ 	if(a % 2 != 0 && b % 2 != 0)
+ 		result = -1;
+ 	//in all other cases, result
+ 	//remains unchanged (0)
+\end{lstlisting}
+\end{solution}  \question
+Assuming the existence of an floating-point variable \cc{data} with some value stored in it, write a piece of code that assigns, to a second integer variable \cc{result}, the value of \cc{data} rounded-off to the nearest integer. For example, if \cc{data = 4.6}, \cc{result} should be \cc{5}. If \cc{data = 4.4}, \cc{result} should be \cc{4}.  if \cc{data = 4.5}, \cc{result} should be \cc{5}.  if \cc{data = 4.0}, \cc{result} should be \cc{4}.
+
+\begin{solution}
+\begin{lstlisting}
+	if(data - (int)data < 0.5)
+		result = (int)data; //round down
+	else
+		result = (int)data + 1; //round up
+\end{lstlisting}
+
+another (more compact, but also more cryptic) way,
+
+\begin{lstlisting}
+	result = (int)(data + 0.5);
+\end{lstlisting}
+\end{solution}  \question
+Assuming the existence of three integer variables \cc{a, b, c} with some values stored in them, write a piece of code that assigns, to a fourth integer variable \cc{result} according to the following table,
+
+\begin{tabular}{cccc}
+  a & b & c & result\\
+  \hline
+  positive & positive & positive & 0\\
+  positive & positive & non-positive & 1\\
+  positive & non-positive & positive & 2\\
+  positive & non-positive & non-positive & 3\\
+  non-positive & positive & positive & 4\\
+  non-positive & positive & non-positive & 5\\
+  non-positive & non-positive & positive & 6\\
+  non-positive & non-positive & non-positive & 7
+  \end{tabular}
+
+\begin{solution}
+\begin{lstlisting}
+if(a > 0)
+	if(b > 0)
+		if(c > 0)
+			result = 0;
+		else //c <= 0
+			result = 1;
+	else //b <= 0
+		if(c > 0)
+			result = 2;
+		else //c <= 0
+			result = 3;
+else //a <= 0
+	if(b > 0)
+		if(c > 0)
+			result = 4;
+		else //c <= 0
+			result = 5;
+	else //b <= 0
+		if(c > 0)
+			result = 6;
+		else //c <= 0
+			result = 7;
+\end{lstlisting}
+a second way, alas, with more expression checks -
+
+\begin{lstlisting}
+if(a > 0 && b > 0 && c > 0)
+	result = 0;
+if(a > 0 && b > 0 && c <= 0)
+	result = 1;
+if(a > 0 && b <= 0 && c > 0)
+	result = 2;
+if(a > 0 && b <= 0 && c <= 0)
+	result = 3;
+if(a <= 0 && b > 0 && c > 0)
+	result = 4;
+if(a <= 0 && b > 0 && c <= 0)
+	result = 5;
+if(a <= 0 && b <= 0 && c > 0)
+	result = 6;
+if(a <= 0 && b <= 0 && c <= 0)
+	result = 7;
+\end{lstlisting}
+\end{solution}
+
+\end{questions}

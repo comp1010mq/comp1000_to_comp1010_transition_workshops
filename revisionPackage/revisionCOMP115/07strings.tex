@@ -1,0 +1,165 @@
+\begin{questions}
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Aloha";
+	int result = str.length()
+\end{lstlisting}
+
+\begin{solution}
+5
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Hola, amigo!";
+	char result = str.charAt(4);
+\end{lstlisting}
+
+\begin{solution}
+, (comma)
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Hola, amigo!";
+	int result = str.indexOf('a');
+\end{lstlisting}
+
+\begin{solution}
+3	
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Hola, amigo!";
+	int result = str.indexOf('A');
+\end{lstlisting}
+
+\begin{solution}
+-1
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Hola, amigo!";
+	String result = str.substring(7, 10);
+\end{lstlisting}
+
+\begin{solution}
+``mig"
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+	String str = "Yes minister";
+	String result = 'S' + str.substring(5);
+\end{lstlisting}
+
+\begin{solution}
+``Sinister"
+\end{solution}
+
+\question What is the value of \cc{result} when the following code is executed?
+
+\begin{lstlisting}[basicstyle=\large]
+String str = "She sells sea shells on the sea shore";
+int result = 0;
+for(int i = 0; i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch == 's') {
+		result++;
+	}
+}
+\end{lstlisting}
+
+\begin{solution}
+7
+\end{solution}
+
+\question Assuming String \cc{str} contains at least one character, write a piece of code that assigns to an integer variable \cc{result}, the number of digits in the String \cc{str}. The expression to check whether a character \cc{ch} is a digit or not is as follows,
+
+\begin{lstlisting}[basicstyle=\large]
+boolean isDigit = false;
+if(ch >= '0' && ch <= '9') {
+	isDigit = true;
+}
+\end{lstlisting}
+
+\begin{solution}
+\begin{lstlisting}
+int result = 0;
+for(int i=0; i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch >= '0' && ch <= '9') {
+		result++;
+	}
+} 
+\end{lstlisting}	
+\end{solution}
+
+\question Assuming String \cc{str} contains at least one character, write a piece of code that assigns to an integer variable \cc{result}, 
+
+\begin{itemize}
+\item \cc{true}, if \cc{str} contains any spaces.	
+\item \cc{false}, otherwise
+\end{itemize}
+
+\begin{solution}
+\begin{lstlisting}
+boolean result = false; //assume no space
+for(int i=0; i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch == ' ') {
+		result = true;
+	}
+}
+\end{lstlisting}	
+More efficient solution - as always in the case of \emph{validation} algorithms, no need to check once a space has been found, so, 
+
+\begin{lstlisting}
+boolean result = false; //assume no space
+for(int i=0; result == false && i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch == ' ') {
+		result = true;
+	}
+}
+\end{lstlisting}	
+\end{solution}
+
+\question Assuming String \cc{str} contains at least one character, write a piece of code that assigns to an integer variable \cc{result}, 
+
+\begin{itemize}
+\item \cc{true}, if \cc{str} contains \textbf{only} spaces.	
+\item \cc{false}, otherwise
+\end{itemize}
+
+\begin{solution}
+\begin{lstlisting}
+boolean result = true; //assume only spaces
+for(int i=0; i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch != ' ') {
+		result = false;
+	}
+}
+\end{lstlisting}	
+More efficient solution - as always in the case of \emph{violation} algorithms, no need to check once a space has been found, so, 
+
+\begin{lstlisting}
+boolean result = true; //assume only spaces
+for(int i=0; result == true && i < str.length(); i++) {
+	char ch = str.charAt(i);
+	if(ch != ' ') {
+		result = false;
+	}
+}
+\end{lstlisting}	
+\end{solution}
+\end{questions}
