@@ -128,7 +128,7 @@ We would like to generate a pattern based on input integer `N > 0`
 ^ ^ ^ ^ 
 ```
 
-<p>&nbsp;<p>
+<p>&nbsp;</p>
 
 `N=6`
 
