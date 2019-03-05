@@ -56,7 +56,7 @@ The problem with this approach is that once an array is created, this method can
 
 ### Creating array - Option 3
 
-The third approach is similar to the second except you **can** use it to update the reference later.
+The third approach is similar to the second except you *can* re-reference an existing array using this way (you cannot do so using option 2).
 
 ```java
 type[] arrayName = new type[]{item1, item2, ....};
