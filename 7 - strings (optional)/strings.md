@@ -83,7 +83,7 @@ for(int i=0; i < str.length() && stillPossible; i++) {
 boolean isAlpha = stillPossible;
 ```
 
-## Useful functioons
+## Useful functions
 
 Some useful functions, and examples are:
 
