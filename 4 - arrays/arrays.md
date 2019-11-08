@@ -158,7 +158,7 @@ boolean[] flags = {true, false, false, true, false};
 <center><img src="figs/arrays-figure2.png" width=100px></center>
 
 
-# Shallow copy
+# Reference copy
 
 Copying an array (source) into another array (destination) using the `=` operator makes the destination refer to the same collection of items as the source.
 
@@ -179,9 +179,9 @@ or the more compact diagram,
 <center><img src="figs/arrays-figure4.png" width=130px></center>
 
 
-# Deep copy
+# Instance copy
 
-A *deep copy* is when you create an array of the same size as the source array and then copy each item one by one.
+An *instance copy* is when you create an array of the same size as the source array and then copy each item one by one.
 
 #### Example
 
