@@ -7,9 +7,9 @@ It's very common to pass an array to a function. Generally, we operate on an arr
 
 ## Operating on an array passed to a function
 
-When you pass an array to a function, a shallow copy of the actual
+When you pass an array to a function, a reference copy of the actual
 parameter is made into the formal parameter. For example, in the
-following code, `data` becomes a shallow copy of `arr`.
+following code, `data` becomes a reference copy of `arr`.
 
 ```java
 void caller() {
@@ -51,7 +51,7 @@ void negate(int[] data) {
 ## Returning an array from a function
 
 If a function returns an array (source) and the caller copies it into an
-array (destination), it’s a shallow copy as demonstrated in the
+array (destination), it’s a reference copy as demonstrated in the
 following example.
 
 If you have a function that modifies the passed array, the contents of
