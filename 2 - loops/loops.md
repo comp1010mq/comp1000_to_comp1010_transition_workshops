@@ -112,6 +112,102 @@ Trace (logic table):
 
 Control structures are literally like lego blocks, you can arrange them as you want, depending on the situation. So you can put loops/conditions inside other loops/conditions (and then more loops/conditions inside that and so on).
 
+```java
+for(int i=1; i < 13; i+=3) {
+	//SOMETHING
+}
+```
+
+How many times does the control reach the line containing `//SOMETHING`?
+
+<details> <summary>Answer</summary>
+  In the above code, the line containing `//SOMETHING` is reached four times (for `i = 1, 4, 7, 10` but not `13` since loop expression is `i < 13` and not `i <= 13`)
+</details>
+
+Now, what if that `//SOMETHING` is a loop itself?
+
+```java
+for(int i=1; i < 13; i+=3) {
+	for(int k=4; k > 1; k--) { 
+		//SOMETHING
+	} 
+	println("Inner loop finished");
+}
+println("Outer loop finished");
+```
+
+We know control reaches line 2 four times. Each time, it sees that there is a loop. Each of the four times, how many times does the inner loop, controlled by variable `k` execute?
+
+<details> <summary>Answer</summary>
+  	- Each time, variable `k` in declared and initialized to 4 	- The inner loop executes three times (for `k = 4, 3, 2`). 
+  	- When `k` becomes 1, inner loop exits, reaching `println("Inner loop finished");
+</details>
+
+So if we were to add a *tracking variable* and increment it, we get,
+
+```java
+int tracker = 0;
+for(int i=1; i < 13; i+=3) {
+	for(int k=4; k > 1; k--) { 
+		tracker++;
+	} 
+}
+```
+
+<details> <summary>Answer</summary>
+  	- Outer loop executes 4 times.
+  	- For each time outer loop executes, inner loop executes 3 times. 
+  	- Hence, `tracker++` executes 12 times.
+  	- Final value of `tracker = 12`.
+</details>
+
+Similar problems for you -
+
+1.
+
+```java
+int boom = 20;
+for(int i=1; i <= 5; i+=2) {
+	for(int k=3; k <=10; k*=2) { 
+		boom--;
+	} 
+}
+```
+
+<details> <summary>Answer</summary>
+  	Final value of `boom`: 14
+</details>
+
+2.
+
+```java
+int ooft = 2;
+for(int i=1; i < 50; i*=4) {
+	for(int k=10; k>1; k-=5) { 
+		ooft+=3;
+	} 
+}
+```
+
+<details> <summary>Answer</summary>
+  	Final value of `ooft`: 20
+</details>
+
+3.
+
+```java
+int yeet = 2;
+for(int i=1; i < 50; i*=4) {
+	for(int k=10; k>i; k-=5) { //READ CAREFULLY
+		yeet--;
+	} 
+}
+```
+
+<details> <summary>Answer</summary>
+  	Final value of `yeet`: -2
+</details>
+
 Let's take some examples of a situation where such nesting is required.
 
 ### Nesting scenario 1
