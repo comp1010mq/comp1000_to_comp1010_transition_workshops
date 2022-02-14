@@ -114,14 +114,16 @@ Control structures are literally like lego blocks, you can arrange them as you w
 
 ```java
 for(int i=1; i < 13; i+=3) {
-	//SOMETHING
+	// SOMETHING
 }
 ```
 
-How many times does the control reach the line containing `//SOMETHING`?
+How many times does the control reach the line containing `// SOMETHING`?
 
-<details> <summary>Answer</summary>
-  In the above code, the line containing `//SOMETHING` is reached four times (for `i = 1, 4, 7, 10` but not `13` since loop expression is `i < 13` and not `i <= 13`)
+<details>
+<summary>Answer</summary>
+
+  In the above code, the line containing `// SOMETHING` is reached four times (for `i = 1, 4, 7, 10` but not `13` since loop expression is `i < 13` and not `i <= 13`)
 </details>
 
 Now, what if that `//SOMETHING` is a loop itself?
@@ -138,9 +140,11 @@ println("Outer loop finished");
 
 We know control reaches line 2 four times. Each time, it sees that there is a loop. Each of the four times, how many times does the inner loop, controlled by variable `k` execute?
 
-<details> <summary>Answer</summary>
-  	- Each time, variable `k` in declared and initialized to 4 	- The inner loop executes three times (for `k = 4, 3, 2`). 
-  	- When `k` becomes 1, inner loop exits, reaching `println("Inner loop finished");
+<details>
+<summary>Answer</summary>
+
+- Each time, variable `k` in declared and initialized to 4 	- The inner loop executes three times (for `k = 4, 3, 2`). 
+- When `k` becomes 1, inner loop exits, reaching `println("Inner loop finished");
 </details>
 
 So if we were to add a *tracking variable* and increment it, we get,
@@ -154,11 +158,13 @@ for(int i=1; i < 13; i+=3) {
 }
 ```
 
-<details> <summary>Answer</summary>
-  	- Outer loop executes 4 times.
-  	- For each time outer loop executes, inner loop executes 3 times. 
-  	- Hence, `tracker++` executes 12 times.
-  	- Final value of `tracker = 12`.
+<details>
+<summary>Answer</summary>
+
+- Outer loop executes 4 times.
+- For each time outer loop executes, inner loop executes 3 times. 
+- Hence, `tracker++` executes 12 times.
+- Final value of `tracker = 12`.
 </details>
 
 Similar problems for you -
@@ -175,7 +181,7 @@ for(int i=1; i <= 5; i+=2) {
 ```
 
 <details> <summary>Answer</summary>
-  	Final value of `boom`: 14
+  	Final value of <code>`boom`</code>: 14
 </details>
 
 2.
@@ -190,7 +196,7 @@ for(int i=1; i < 50; i*=4) {
 ```
 
 <details> <summary>Answer</summary>
-  	Final value of `ooft`: 20
+  	Final value of <code>ooft</code>: 20
 </details>
 
 3.
@@ -205,7 +211,7 @@ for(int i=1; i < 50; i*=4) {
 ```
 
 <details> <summary>Answer</summary>
-  	Final value of `yeet`: -2
+  	Final value of <code>`yeet`</code>: -2
 </details>
 
 Let's take some examples of a situation where such nesting is required.
@@ -260,16 +266,20 @@ for(int k=1; k<=i; k++) {
 }
 ```
 
-**COMPLETE SOLUTION**
+****
 
-```java
-for(int i=1; i<=N; i++) {
-	for(int k=1; k<=i; k++) {
-		print("^");
+<details>
+<summary><b>COMPLETE SOLUTION</b></summary>
+
+	```java
+	for(int i=1; i<=N; i++) {
+		for(int k=1; k<=i; k++) {
+			print("^");
+		}
+		println(); 
 	}
-	println(); 
-}
-```
+	```
+</details>
 
 ### Nesting scenario 2
 
@@ -296,30 +306,32 @@ print("^");
 
 will change to,
 
-```
-if(i%2 == 1) { //odd counter: cap
+```java 
+if(i%2 == 1) { // odd counter: cap
 	print("^");
 }
-else { //even counter: dash
+else { // even counter: dash
 	print("-");
 }
 ```
 
-**COMPLETE SOLUTION**
+<details>
+<summary><b>COMPLETE SOLUTION</b></summary>
 
-```java
-for(int i=1; i<=N; i++) {
-	for(int k=1; k<=i; k++) {
-		if(i%2 == 1) { //odd counter: cap
-			print("^");
+	```java
+	for(int i=1; i<=N; i++) {
+		for(int k=1; k<=i; k++) {
+			if(i%2 == 1) { // odd counter: cap
+				print("^");
+			}
+			else { // even counter: dash
+				print("-");
+			}
 		}
-		else { //even counter: dash
-			print("-");
-		}
+		println(); 
 	}
-	println(); 
-}
-```
+	```
+</details>
 
 
 ### Nesting scenario 3 (Exercise)
@@ -379,7 +391,7 @@ int z = (int)r;
 To generate a number in multiples of 0.5 between 0 and 100 (inclusive on both sides), we first have to generate a random integer between 0 and 200 (inclusive on both sides).
 
 ```java
-int a = (int)random(0, 201); //remember, 201 is not included!
+int a = (int)random(0, 201); // remember, 201 is not included!
 ```
 
 Next, we can divide the resulting integer by 0.5 to get our random and stepped real number.
@@ -393,8 +405,8 @@ float b = a * 0.5;
 For scenarios 1 to 3, you may assume that `n` is generated using the following statement:
 
 ```java
-int x = 1 + (int)random(100); //x can be any integer from 1 to 100
-int n = 10*x; //n can be one of the values from [10, 20, ..., 1000]
+int x = 1 + (int)random(100); // x can be any integer from 1 to 100
+int n = 10*x; // n can be one of the values from [10, 20, ..., 1000]
 ```
 
 
@@ -445,5 +457,5 @@ There is actually a very elegant formula to get this value, but for the purpose 
 You may assume that `n` is generated using the following statement:
 
 ```java
-int n = (int)random(101); //n can be any integer from 0 to 100
+int n = (int)random(101); // n can be any integer from 0 to 100
 ```
