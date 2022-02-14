@@ -365,7 +365,7 @@ So, instead we'll iterate over numbers generated via a random-number generator.
 In processing, we can get a random real number between 0 and `n` (including 0 but **excluding** `n`) using,
 
 ```java
-double r = random(n);
+float r = random(n);
 ``` 
 
 If we cast the result to an integer, that integer will be between 0 and `n` (including 0 but **excluding** `n`)
@@ -385,7 +385,7 @@ int a = (int)random(0, 201); //remember, 201 is not included!
 Next, we can divide the resulting integer by 0.5 to get our random and stepped real number.
 
 ```java
-double b = a * 0.5;
+float b = a * 0.5;
 ```
 
 ### Assumption for scenarios 1 to 3
