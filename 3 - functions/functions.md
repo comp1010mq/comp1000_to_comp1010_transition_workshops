@@ -22,7 +22,7 @@ Even if you pass two values, you must ensure they are of the right type. For exa
 
 ## Defining a function
 
-Syntax of a function definition is:
+The syntax of a function definition is:
 
 ```java
 returnType function(<parameters>) {
@@ -54,8 +54,10 @@ boolean divisible(int a, int b) {
 
 -   Let’s say the call to function `divisible` is,
 
+    ```java
         int x = 7, y = 5;
         boolean status = divisible(x+y, x-y);
+    ```
 
 -   The integer expressions `x+y` and `x-y` are evaluated to 12 and 2
     respectively. The evaluated values are known as *actual parameters*
@@ -68,7 +70,7 @@ boolean divisible(int a, int b) {
 <center><img src="figs/functionMemoryDiagrams-figure5.png" style="width: 500px;"/></center>
 
 -   The function determines that the boolean expression `a%b == 0` is
-    `true`, executes the if-block and returns `true`.
+    `true` (because `12 % 2 = 0`), executes the if-block and returns `true`.
 
 -   The control is transferred back to the caller with the returned
     value `true` being copied into variable `status`.
@@ -81,7 +83,7 @@ boolean divisible(int a, int b) {
 
 Suppose we have a function that accepts a real number (`double`) and returns its square. 
 
-Draw a block diagram for the interaction when a caller calls the function with the value 2.5. Assume the name of the formal parameter is `val`, and the value returned by the function is copied into a variable `sqr`.
+Draw a block diagram for the interaction when a caller calls the function with the value `2.5`. Assume the name of the formal parameter is `val`, and the value returned by the function is copied into a variable `sqr`.
 
 ### Exercise 2
 
@@ -93,7 +95,7 @@ int roundOff(double a) {
 }
 ```
 
-Write a statement in the caller that calls the function `roundOff` with the parameter 6.8 and stores the value returned in a variable `result`.
+Write a statement in the caller that calls the function `roundOff` with the parameter `6.8` and stores the value returned in a variable `result`.
 
 
 ### Sub-exercise 2.1
@@ -110,7 +112,7 @@ Which of the following are valid calls to function `roundOff`?
 
 ### Exercise 3
 
-Define a function that when passed two integers, returns their average. Remember that 15/2 is 7 while 15/2.0 is 7.5.
+Define a function that when passed two integers, returns their average. Remember that `15/2` is 7 while `15/2.0` is 7.5.
 
 
 ### Exercise 4
