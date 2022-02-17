@@ -39,7 +39,7 @@ boolean[] flags = new boolean[8]; //an array that holds 8 booleans
 When you know the values that need to be stored in the array beforehand, you can create an array as,
 
 ```java
-type[] arrayName = {item1, item2, ....};
+type[] arrayName = {item1, item2, ...};
 ```
 
 #### Example
@@ -81,7 +81,7 @@ For example,
 
 ```java
 int[] data = new int[20];
-println(data.length); //displays 20
+println(data.length); // displays 20
 ```
 
 # Accessing items of an array
@@ -95,7 +95,7 @@ Thus you can traverse an array using a loop from `0` to `arr.length - 1` as,
 
 ```java
 for(int i=0; i < arr.length; i++) {
-	//do what you want with arr[i]
+	// do what you want with arr[i]
 }
 ```
 
@@ -108,7 +108,7 @@ Each dice roll is a random integer between 1 and 6.
 ```java
 int[] outcomes = new int[20];
 for(int i=0; i < outcomes.length; i++) {
-	outcomes[i] = (int)random(1, 7); //remember 7 is not included
+	outcomes[i] = (int)random(1, 7); // remember 7 is not included
 }
 ```
 
@@ -120,7 +120,7 @@ for(int i=0; i < outcomes.length; i++) {
 	total += outcomes[i];
 }
 double average = (total * 1.0)/outcomes.length; 
-//multiplication with 1.0 to convert int to double
+// multiplication with 1.0 to convert int to double
 ```
 
 
@@ -191,7 +191,7 @@ int[] c = new int[a.length];
 for(int i=0; i < a.length; i++) {
 	c[i] = a[i];
 }
-c[2] = -30; //a[2] won't change
+c[2] = -30; // a[2] won't change
 ```
 
 The outcome is represented by the following memory diagrams,

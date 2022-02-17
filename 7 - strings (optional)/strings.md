@@ -7,12 +7,12 @@ Strings are nothing but a character array (`char[]`) inside a parcel known as cl
 
 ```java 
 String str;
-println(str); //COMPILATION ERROR - The local variable "str" may not have been initialized
+println(str); // COMPILATION ERROR - The local variable "str" may not have been initialized
 
 str = "Kill Bill"; 
-println(str); //displays Kill Bill
+println(str); // displays Kill Bill
 
-String second = "Super Nintendo Chalmers"; //declaring and initializing in one statement
+String second = "Super Nintendo Chalmers"; // declaring and initializing in one statement
 ```
 
 ## Length of a String
@@ -35,7 +35,7 @@ We loop through any given String `str` as:
 
 ```java
 for(int i=0; i < str.length(); i++) {
-	//current character at str.charAt(i)
+	// current character at str.charAt(i)
 }
 ```
 
