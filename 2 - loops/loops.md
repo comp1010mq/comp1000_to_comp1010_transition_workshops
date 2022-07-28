@@ -430,7 +430,7 @@ Consider a party where there are 4 people. Call them Alice, Bob, Charles and Dia
 - Bob (already shook hands with Alice) with
 	1. Charles
 	2. Diane
-- Chales (already shook hands with Alice and Bob) with
+- Charles (already shook hands with Alice and Bob) with
 	1. Diane 
 - Diane (already shook hands with everyone)
 
