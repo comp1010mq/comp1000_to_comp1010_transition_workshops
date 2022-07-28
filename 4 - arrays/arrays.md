@@ -1,6 +1,6 @@
 # Arrays
 
-An array is a fixed-sized collection of items, each item of the same type.
+An array is a fixed-sized collection of items, each of the same data type.
 
 So you can have,
 
