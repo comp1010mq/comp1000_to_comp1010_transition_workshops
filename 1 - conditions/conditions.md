@@ -236,7 +236,7 @@ Write a piece of code that outputs the percentage discount for a given category 
 
 The shopping mall charges for parking based on the following rules:
 
-- under 3 hours: free
+- under 3 hours: Free
 - 3 hours to 3 hours 29 minutes: $4
 - 3 hours 30 minutes to 3 hours 59 minutes: $7
 - 4 hours to 4 hours 29 minutes: $11
